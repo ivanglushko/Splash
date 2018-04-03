@@ -7,11 +7,11 @@
 //
 
 import Foundation
-import UIKit
+
 
 class InitialPresenter {
-  let  backgroundImage = UIImage(named: "splashScreen")
-  
+  var imagePath = "splashScreen"
+  weak var view: InitialView?
   
   
 }

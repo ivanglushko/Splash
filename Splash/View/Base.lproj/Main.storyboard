@@ -169,19 +169,31 @@
         <scene sceneID="McT-6V-645">
             <objects>
                 <viewController title="TabBarController" id="Uz8-pj-Rbo" customClass="InitialViewController" customModule="Splash" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="au4-W3-rsa">
+                    <view key="view" contentMode="scaleAspectFit" id="au4-W3-rsa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nBH-AW-UAL">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nBH-AW-UAL" firstAttribute="top" secondItem="au4-W3-rsa" secondAttribute="top" id="Q45-EZ-Ayb"/>
+                            <constraint firstItem="nBH-AW-UAL" firstAttribute="trailing" secondItem="0zB-tU-Mcr" secondAttribute="trailing" id="ZGe-vq-fpP"/>
+                            <constraint firstItem="nBH-AW-UAL" firstAttribute="bottom" secondItem="0zB-tU-Mcr" secondAttribute="bottom" id="knp-Sf-dE2"/>
+                            <constraint firstItem="nBH-AW-UAL" firstAttribute="leading" secondItem="0zB-tU-Mcr" secondAttribute="leading" id="qXh-4z-pLP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="0zB-tU-Mcr"/>
                     </view>
                     <connections>
+                        <outlet property="startupImage" destination="nBH-AW-UAL" id="eTc-Ez-e41"/>
                         <segue destination="mPl-GR-P5S" kind="show" identifier="GoToTabBar" id="GEc-ZT-Wdi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d34-00-C4l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1591" y="-170"/>
+            <point key="canvasLocation" x="-1591.2" y="-170.46476761619192"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ale-A0-wWi">

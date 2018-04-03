@@ -8,28 +8,35 @@
 
 import UIKit
 
+protocol InitialView: class{
+  var imagePath: String {get}
+  func setImage(imageView: UIImageView)
+}
+
 class InitialViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+  @IBOutlet weak var startupImage: UIImageView!
+  let presenter = InitialPresenter()
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    presenter.view = self
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    setImage(imageView: startupImage)
+  }
 
 }
+
+extension InitialViewController: InitialView {
+  var imagePath: String {
+    return presenter.imagePath
+  }
+  
+  func setImage(imageView: UIImageView) {
+    imageView.image = UIImage(named: imagePath)
+  }
+  
+  
+}
+  
+
