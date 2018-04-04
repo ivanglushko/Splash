@@ -9,10 +9,10 @@
 import UIKit
 
 class BlogTableViewController: UITableViewController {
-
+    
     @IBAction func addNote(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "addNote", sender: self)
     }
     
-
+    
 }

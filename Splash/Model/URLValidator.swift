@@ -9,13 +9,13 @@
 import Foundation
 
 protocol URLValidatorProtocol {
-  func isValid(text: String) -> Bool
+    func isValid(text: String) -> Bool
 }
 
 struct URLValidator: URLValidatorProtocol  {
-  func isValid(text: String) -> Bool {
-    return text.hasPrefix("https:/") && text.hasSuffix("rss") || text.hasPrefix("http") && text.hasSuffix("rss")
-  }
-  
-  
+    func isValid(text: String) -> Bool {
+        return text.hasPrefix("https:/") && text.hasSuffix("rss") || text.hasPrefix("http") && text.hasSuffix("rss")
+    }
+    
+    
 }
