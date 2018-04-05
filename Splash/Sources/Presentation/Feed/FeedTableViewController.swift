@@ -8,21 +8,19 @@
 
 import UIKit
 
-protocol FeedView: class{
-    var numberOfCells: Int {get set}
-    func updateView()
-    func buildButton()
-}
 
 class FeedTableViewController: UITableViewController {
-    fileprivate let presenter = FeedPresenter()
+    // MARK: - Entities
+    var output: FeedViewOutput {
+        let presenter = FeedPresenter()
+        presenter.view = self
+        return presenter
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.view = self
+        output.triggerViewReadyEvent()
         
-        tableView.estimatedRowHeight = 155.0
-        tableView.rowHeight = UITableViewAutomaticDimension
     }
 }
 
@@ -38,10 +36,15 @@ extension FeedTableViewController {
 
 // MARK: - Feed View
 
-extension FeedTableViewController: FeedView {
+extension FeedTableViewController: FeedViewInput {
+    func setRowHeight() {
+        self.tableView.estimatedRowHeight = 155.0
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+    }
+    
     var numberOfCells: Int {
         get {
-            return presenter.numberOfCells()
+            return output.numberOfCells()
         }
         set {
             self.numberOfCells = newValue

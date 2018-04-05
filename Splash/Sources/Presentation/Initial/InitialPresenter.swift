@@ -10,11 +10,13 @@ import Foundation
 
 
 class InitialPresenter {
-    var imagePath = "splashScreen"
-    weak var view: InitialView?
-    
-    func new() {
-        
+    weak var view: InitialViewInput?
+}
+
+extension InitialPresenter: InitialViewOutput {
+    func triggerViewReadyEvent() {
+        view?.setupInitialState()
     }
     
 }
+

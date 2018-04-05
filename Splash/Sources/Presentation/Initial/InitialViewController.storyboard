@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--TabBarController-->
+        <scene sceneID="FNE-bJ-EOe">
+            <objects>
+                <viewController storyboardIdentifier="InitialViewController" title="TabBarController" id="i9t-DZ-x0P" customClass="InitialViewController" customModule="Splash" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleAspectFit" id="yIE-QC-UQE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vl2-DD-LCj">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Vl2-DD-LCj" firstAttribute="leading" secondItem="6OD-hy-cy1" secondAttribute="leading" id="SZY-Wx-HJn"/>
+                            <constraint firstItem="Vl2-DD-LCj" firstAttribute="bottom" secondItem="6OD-hy-cy1" secondAttribute="bottom" id="b3O-HV-MpZ"/>
+                            <constraint firstItem="Vl2-DD-LCj" firstAttribute="top" secondItem="yIE-QC-UQE" secondAttribute="top" id="ln5-hM-IAg"/>
+                            <constraint firstItem="Vl2-DD-LCj" firstAttribute="trailing" secondItem="6OD-hy-cy1" secondAttribute="trailing" id="rcB-lG-oK0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6OD-hy-cy1"/>
+                    </view>
+                    <connections>
+                        <outlet property="startupImage" destination="Vl2-DD-LCj" id="KuO-w0-1Lk"/>
+                        <segue destination="0Y7-bo-E6q" kind="show" identifier="GoToTabBar" id="qZu-1M-abB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="314-Z5-dTj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1591.2" y="-170.46476761619192"/>
+        </scene>
+        <!--TabBarViewController-->
+        <scene sceneID="pbs-mg-vgA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TabBarViewController" id="0Y7-bo-E6q" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6AA-NP-N3m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-913" y="-171"/>
+        </scene>
+    </scenes>
+</document>

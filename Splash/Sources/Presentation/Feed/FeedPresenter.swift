@@ -10,12 +10,20 @@ import Foundation
 
 class FeedPresenter {
     
-    weak var view: FeedView?
-    weak var settingsView: SettingsView?
+    weak var view: FeedViewInput?
+    
     fileprivate let urls = UserDefaults.standard.value(forKey: "urls") as? [String]
     fileprivate let feedParser = FeedParser()
     fileprivate var items: [ArticleItem]? = []
     
+    
+
+}
+
+extension FeedPresenter: FeedViewOutput {
+    func triggerViewReadyEvent() {
+        view?.setRowHeight()
+    }
     
     func parseURL(url: URL) {
         feedParser.parseFeed(feedUrl: url) { (items: [ArticleItem]) in
@@ -30,8 +38,5 @@ class FeedPresenter {
         if number == 0 { view?.buildButton() }
         return number
     }
-    
-    func returnUrls() -> [String]? {
-        return urls
-    }
+
 }

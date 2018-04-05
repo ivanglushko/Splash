@@ -8,17 +8,17 @@
 
 import UIKit
 
-protocol SettingsView: class{
-    var urls: [String]? {get set}
-    func setCells(indexPath: Int) -> UITableViewCell
-}
 
 class SettingsTableViewController: UITableViewController {
-    fileprivate let feedPresenter = FeedPresenter()
+    var output: SettingsViewOutput {
+        let presenter = SettingsPresenter()
+        presenter.view = self
+        return presenter
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        feedPresenter.settingsView = self
+        
     }
 }
 
@@ -35,23 +35,23 @@ extension SettingsTableViewController {
     
 }
 
+extension SettingsTableViewController {
+    func setCells(indexPath: Int) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = urls?[indexPath]
+        return cell
+    }
+}
 
-extension SettingsTableViewController: SettingsView {
+extension SettingsTableViewController: SettingsViewInput {
     var urls: [String]? {
         get {
-            return feedPresenter.returnUrls()
+            return output.returnUrls()
         }
         set {
             self.urls = newValue
         }
     }
     
-    func setCells(indexPath: Int) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = urls?[indexPath]
-        return cell
-    }
-    
-    
-    
+
 }

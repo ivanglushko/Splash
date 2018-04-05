@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JOD-wZ-Sag">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Feed-->
+        <scene sceneID="NVg-KI-aLD">
+            <objects>
+                <tableViewController id="JOD-wZ-Sag" customClass="FeedTableViewController" customModule="Splash" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ozu-E3-2GS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="w4h-bh-17l">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="26"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VbJ-xZ-izB">
+                                    <rect key="frame" x="118" y="2" width="139" height="23"/>
+                                    <segments>
+                                        <segment title="All"/>
+                                        <segment title="Favorites"/>
+                                    </segments>
+                                </segmentedControl>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="VbJ-xZ-izB" secondAttribute="bottom" constant="2" id="72d-Ve-wcv"/>
+                                <constraint firstItem="VbJ-xZ-izB" firstAttribute="centerY" secondItem="w4h-bh-17l" secondAttribute="centerY" id="JA4-98-MiR"/>
+                                <constraint firstItem="VbJ-xZ-izB" firstAttribute="centerX" secondItem="w4h-bh-17l" secondAttribute="centerX" id="lBh-tb-EtU"/>
+                                <constraint firstItem="VbJ-xZ-izB" firstAttribute="top" secondItem="w4h-bh-17l" secondAttribute="top" constant="2" id="lyG-R3-w7S"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FeedCell" id="brG-q1-Q1L">
+                                <rect key="frame" x="0.0" y="54" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="brG-q1-Q1L" id="cds-T5-bz1">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="JOD-wZ-Sag" id="0L5-51-Dtb"/>
+                            <outlet property="delegate" destination="JOD-wZ-Sag" id="BIQ-7P-rsp"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Feed" image="cloudIcon" id="Aye-gr-fV6"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dB0-F3-1Fc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1068" y="-170.46476761619192"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cloudIcon" width="25" height="25"/>
+    </resources>
+</document>
