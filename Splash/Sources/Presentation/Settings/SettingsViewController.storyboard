@@ -25,8 +25,16 @@
                             </textAttributes>
                             <items>
                                 <navigationItem title="Links" id="ZPN-yf-Wub">
-                                    <barButtonItem key="leftBarButtonItem" systemItem="trash" id="MSF-uM-flN"/>
-                                    <barButtonItem key="rightBarButtonItem" systemItem="add" id="25T-u2-YhI"/>
+                                    <barButtonItem key="leftBarButtonItem" systemItem="trash" id="MSF-uM-flN">
+                                        <connections>
+                                            <action selector="deleteAllUrls:" destination="VIo-as-8Le" id="lHg-mc-w0t"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem key="rightBarButtonItem" systemItem="add" id="25T-u2-YhI">
+                                        <connections>
+                                            <action selector="addLink:" destination="VIo-as-8Le" id="r1b-WT-jbK"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </navigationItem>
                             </items>
                         </navigationBar>

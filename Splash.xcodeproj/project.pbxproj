@@ -7,20 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C0022F02073BBFD00B062C1 /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0022EF2073BBFD00B062C1 /* FeedPresenter.swift */; };
 		2C72C5042073B88500C300B2 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C72C5032073B88500C300B2 /* TabBarViewController.swift */; };
 		2C8BB467207424A800711675 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8BB466207424A800711675 /* SettingsTableViewController.swift */; };
+		9F5339FB207C80940074AC50 /* FeedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F5339F5207C80940074AC50 /* FeedViewController.storyboard */; };
+		9F5339FC207C80940074AC50 /* FeedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5339F8207C80940074AC50 /* FeedPresenter.swift */; };
+		9F5339FD207C80940074AC50 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5339F9207C80940074AC50 /* FeedTableViewController.swift */; };
+		9F5339FE207C80940074AC50 /* FeedViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5339FA207C80940074AC50 /* FeedViewIO.swift */; };
+		9F533A00207C80AA0074AC50 /* FeedCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5339FF207C80AA0074AC50 /* FeedCells.swift */; };
 		FA071B9D206ED9F700359F13 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA071B9C206ED9F700359F13 /* InitialViewController.swift */; };
 		FA071B9F206EDA8E00359F13 /* InitialPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA071B9E206EDA8E00359F13 /* InitialPresenter.swift */; };
 		FA2D6F44207636F5002E3414 /* InitialViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D6F43207636F5002E3414 /* InitialViewIO.swift */; };
 		FA2D6F4620763B98002E3414 /* InitialViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2D6F4520763B98002E3414 /* InitialViewController.storyboard */; };
 		FA2D6F4820763BFA002E3414 /* TabBarViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2D6F4720763BFA002E3414 /* TabBarViewController.storyboard */; };
-		FA2D6F4A20763C29002E3414 /* FeedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2D6F4920763C29002E3414 /* FeedViewController.storyboard */; };
 		FA2D6F4C20763C4B002E3414 /* BlogViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2D6F4B20763C4B002E3414 /* BlogViewController.storyboard */; };
 		FA2D6F4E20763C8B002E3414 /* AddNoteViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2D6F4D20763C8B002E3414 /* AddNoteViewController.storyboard */; };
 		FA2D6F5020763CBE002E3414 /* SettingsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2D6F4F20763CBE002E3414 /* SettingsViewController.storyboard */; };
 		FA2D6F5420764F7E002E3414 /* TabBarViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D6F5320764F7E002E3414 /* TabBarViewIO.swift */; };
-		FA2D6F5620764F96002E3414 /* FeedViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D6F5520764F96002E3414 /* FeedViewIO.swift */; };
 		FA2D6F5820764FA7002E3414 /* BlogViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D6F5720764FA7002E3414 /* BlogViewIO.swift */; };
 		FA2D6F5A20764FC4002E3414 /* AddNoteViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D6F5920764FC4002E3414 /* AddNoteViewIO.swift */; };
 		FA2D6F5C20764FD2002E3414 /* SettingsViewIO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2D6F5B20764FD2002E3414 /* SettingsViewIO.swift */; };
@@ -30,27 +32,28 @@
 		FADFC2E3206C5AFC000BECFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFC2E2206C5AFC000BECFD /* AppDelegate.swift */; };
 		FADFC2EA206C5AFC000BECFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADFC2E9206C5AFC000BECFD /* Assets.xcassets */; };
 		FADFC2ED206C5AFC000BECFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADFC2EB206C5AFC000BECFD /* LaunchScreen.storyboard */; };
-		FADFC2F8206C61B3000BECFD /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFC2F7206C61B3000BECFD /* FeedTableViewController.swift */; };
 		FADFC2FC206C6BD2000BECFD /* BlogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFC2FB206C6BD2000BECFD /* BlogTableViewController.swift */; };
 		FADFC2FE206C6C03000BECFD /* FeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFC2FD206C6C03000BECFD /* FeedParser.swift */; };
 		FAF09B64206C762800B74B73 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF09B63206C762800B74B73 /* AddNoteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2C0022EF2073BBFD00B062C1 /* FeedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPresenter.swift; sourceTree = "<group>"; };
 		2C72C5032073B88500C300B2 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		2C8BB466207424A800711675 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		9F5339F5207C80940074AC50 /* FeedViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeedViewController.storyboard; sourceTree = "<group>"; };
+		9F5339F8207C80940074AC50 /* FeedPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedPresenter.swift; sourceTree = "<group>"; };
+		9F5339F9207C80940074AC50 /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
+		9F5339FA207C80940074AC50 /* FeedViewIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewIO.swift; sourceTree = "<group>"; };
+		9F5339FF207C80AA0074AC50 /* FeedCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCells.swift; sourceTree = "<group>"; };
 		FA071B9C206ED9F700359F13 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		FA071B9E206EDA8E00359F13 /* InitialPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialPresenter.swift; sourceTree = "<group>"; };
 		FA2D6F43207636F5002E3414 /* InitialViewIO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewIO.swift; sourceTree = "<group>"; };
 		FA2D6F4520763B98002E3414 /* InitialViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InitialViewController.storyboard; sourceTree = "<group>"; };
 		FA2D6F4720763BFA002E3414 /* TabBarViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarViewController.storyboard; sourceTree = "<group>"; };
-		FA2D6F4920763C29002E3414 /* FeedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FeedViewController.storyboard; sourceTree = "<group>"; };
 		FA2D6F4B20763C4B002E3414 /* BlogViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BlogViewController.storyboard; sourceTree = "<group>"; };
 		FA2D6F4D20763C8B002E3414 /* AddNoteViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddNoteViewController.storyboard; sourceTree = "<group>"; };
 		FA2D6F4F20763CBE002E3414 /* SettingsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SettingsViewController.storyboard; sourceTree = "<group>"; };
 		FA2D6F5320764F7E002E3414 /* TabBarViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewIO.swift; sourceTree = "<group>"; };
-		FA2D6F5520764F96002E3414 /* FeedViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewIO.swift; sourceTree = "<group>"; };
 		FA2D6F5720764FA7002E3414 /* BlogViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogViewIO.swift; sourceTree = "<group>"; };
 		FA2D6F5920764FC4002E3414 /* AddNoteViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewIO.swift; sourceTree = "<group>"; };
 		FA2D6F5B20764FD2002E3414 /* SettingsViewIO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewIO.swift; sourceTree = "<group>"; };
@@ -62,7 +65,6 @@
 		FADFC2E9206C5AFC000BECFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FADFC2EC206C5AFC000BECFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FADFC2EE206C5AFC000BECFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FADFC2F7206C61B3000BECFD /* FeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
 		FADFC2FB206C6BD2000BECFD /* BlogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogTableViewController.swift; sourceTree = "<group>"; };
 		FADFC2FD206C6C03000BECFD /* FeedParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedParser.swift; sourceTree = "<group>"; };
 		FAF09B63206C762800B74B73 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +81,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F5339F4207C80940074AC50 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				9F5339F5207C80940074AC50 /* FeedViewController.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		9F5339F6207C80940074AC50 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9F5339FF207C80AA0074AC50 /* FeedCells.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		9F5339F7207C80940074AC50 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+				9F5339FA207C80940074AC50 /* FeedViewIO.swift */,
+				9F5339F8207C80940074AC50 /* FeedPresenter.swift */,
+				9F5339F9207C80940074AC50 /* FeedTableViewController.swift */,
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
 		FA2D6F3820763518002E3414 /* Initial */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,10 +121,9 @@
 		FA2D6F3920763545002E3414 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				FA2D6F5520764F96002E3414 /* FeedViewIO.swift */,
-				2C0022EF2073BBFD00B062C1 /* FeedPresenter.swift */,
-				FADFC2F7206C61B3000BECFD /* FeedTableViewController.swift */,
-				FA2D6F4920763C29002E3414 /* FeedViewController.storyboard */,
+				9F5339F6207C80940074AC50 /* Common */,
+				9F5339F7207C80940074AC50 /* Module */,
+				9F5339F4207C80940074AC50 /* Storyboard */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -296,7 +323,7 @@
 				FA2D6F4E20763C8B002E3414 /* AddNoteViewController.storyboard in Resources */,
 				FA2D6F4820763BFA002E3414 /* TabBarViewController.storyboard in Resources */,
 				FADFC2ED206C5AFC000BECFD /* LaunchScreen.storyboard in Resources */,
-				FA2D6F4A20763C29002E3414 /* FeedViewController.storyboard in Resources */,
+				9F5339FB207C80940074AC50 /* FeedViewController.storyboard in Resources */,
 				FADFC2EA206C5AFC000BECFD /* Assets.xcassets in Resources */,
 				FA2D6F5020763CBE002E3414 /* SettingsViewController.storyboard in Resources */,
 				FA2D6F4620763B98002E3414 /* InitialViewController.storyboard in Resources */,
@@ -312,18 +339,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA2D6F5A20764FC4002E3414 /* AddNoteViewIO.swift in Sources */,
+				9F533A00207C80AA0074AC50 /* FeedCells.swift in Sources */,
 				FA071B9F206EDA8E00359F13 /* InitialPresenter.swift in Sources */,
 				FADFC2E3206C5AFC000BECFD /* AppDelegate.swift in Sources */,
 				FA2D6F5820764FA7002E3414 /* BlogViewIO.swift in Sources */,
-				FADFC2F8206C61B3000BECFD /* FeedTableViewController.swift in Sources */,
-				2C0022F02073BBFD00B062C1 /* FeedPresenter.swift in Sources */,
 				FAF09B64206C762800B74B73 /* AddNoteViewController.swift in Sources */,
 				FA071B9D206ED9F700359F13 /* InitialViewController.swift in Sources */,
 				FA2D6F5E2076577E002E3414 /* SettingsPresenter.swift in Sources */,
 				FA8FBA4C207147A10029E430 /* URLValidator.swift in Sources */,
+				9F5339FD207C80940074AC50 /* FeedTableViewController.swift in Sources */,
+				9F5339FC207C80940074AC50 /* FeedPresenter.swift in Sources */,
 				FADFC2FE206C6C03000BECFD /* FeedParser.swift in Sources */,
 				2C8BB467207424A800711675 /* SettingsTableViewController.swift in Sources */,
-				FA2D6F5620764F96002E3414 /* FeedViewIO.swift in Sources */,
+				9F5339FE207C80940074AC50 /* FeedViewIO.swift in Sources */,
 				FADFC2FC206C6BD2000BECFD /* BlogTableViewController.swift in Sources */,
 				FA2D6F5C20764FD2002E3414 /* SettingsViewIO.swift in Sources */,
 				FA2D6F44207636F5002E3414 /* InitialViewIO.swift in Sources */,

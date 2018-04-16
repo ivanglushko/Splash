@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 class InitialPresenter {
     weak var view: InitialViewInput?
 }
@@ -17,6 +16,4 @@ extension InitialPresenter: InitialViewOutput {
     func triggerViewReadyEvent() {
         view?.setupInitialState()
     }
-    
 }
-

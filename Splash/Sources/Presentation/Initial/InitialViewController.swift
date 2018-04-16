@@ -8,18 +8,16 @@
 
 import UIKit
 
-
 class InitialViewController: UIViewController {
+    // MARK: - Outlets
+    @IBOutlet weak var startupImage: UIImageView!
+    
     // MARK: - Entities
     var output: InitialViewOutput {
         let presenter = InitialPresenter()
         presenter.view = self
         return presenter 
     }
-        
-    
-    @IBOutlet weak var startupImage: UIImageView!
-    let presenter = InitialPresenter()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -30,15 +28,10 @@ class InitialViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         performSegue(withIdentifier: "GoToTabBar", sender: self)
     }
-    
 }
 
 extension InitialViewController: InitialViewInput {
     func setupInitialState() {
+    
     }
-    
-    
-    
 }
-
-

@@ -16,9 +16,47 @@ class SettingsTableViewController: UITableViewController {
         return presenter
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    
+    @IBAction func addLink(_ sender: UIBarButtonItem) {
+        buildAddAlert()
+    }
+    @IBAction func deleteAllUrls(_ sender: UIBarButtonItem) {
+        buildDeleteAllUrlsAlert()
+    }
+}
+
+// MARK: - Alerts
+extension SettingsTableViewController {
+    func buildAddAlert() {
+        let alert = UIAlertController(title: nil, message: "Add new link", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default) { (action) in
+            guard let text = alert.textFields?.first?.text else { return }
+            let validator = URLValidator()
+            if validator.isValid(text: text) {
+                UserDefaults.standard.setValue([text], forKey: "urls")
+                self.reloadData()
+            } else {
+                alert.message = "Invalid link try again."
+                let action = UIAlertAction(title: "Cancel", style: .cancel)
+                alert.addAction(action)
+                self.present(alert, animated: true)
+            }
+        }
+        alert.addAction(action)
+        alert.addTextField()
+        present(alert, animated: true)
+    }
+    
+    func buildDeleteAllUrlsAlert() {
+        let alert = UIAlertController(title: nil, message: "Do you want to delete all links?", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            UserDefaults.standard.setValue(nil, forKey: "urls")
+            self.reloadData()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alert.addAction(okAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true)
     }
 }
 
@@ -33,6 +71,9 @@ extension SettingsTableViewController {
         return { setCells(indexPath: indexPath.row) }()
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        output.tappedOnLink(index: indexPath.row)
+    }
 }
 
 extension SettingsTableViewController {
@@ -49,9 +90,15 @@ extension SettingsTableViewController: SettingsViewInput {
             return output.returnUrls()
         }
         set {
+            UserDefaults.standard.set(newValue, forKey: "urls")
             self.urls = newValue
         }
     }
     
+    func reloadData() {
+        OperationQueue.main.addOperation {
+            self.tableView.reloadData()
+        }
+    }
 
 }

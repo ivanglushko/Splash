@@ -22,6 +22,12 @@ extension SettingsPresenter: SettingsViewOutput {
         
     }
     
+    func tappedOnLink(index: Int) {
+        if let first = view?.urls?.remove(at: index) {
+            view?.urls?.insert(first, at: 0)
+            view?.reloadData()
+        }
+    }
     
     func returnUrls() -> [String]? {
         return urls
