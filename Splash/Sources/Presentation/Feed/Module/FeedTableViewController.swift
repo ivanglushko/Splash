@@ -44,6 +44,7 @@ class FeedTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         output.triggerViewReadyEvent()
+        print("ViewDidLoad")
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -66,7 +67,7 @@ extension FeedTableViewController {
             debugPrint("\(#file): Can't dequeue reusable cell with identifier \(kArticleCellReuseId)")
             return UITableViewCell()
         }
-        
+        print("configuring cell")
         let item = output.item(for: indexPath)
         cell.configure(with: item)
         

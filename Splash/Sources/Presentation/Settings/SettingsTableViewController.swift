@@ -28,22 +28,26 @@ class SettingsTableViewController: UITableViewController {
 // MARK: - Alerts
 extension SettingsTableViewController {
     func buildAddAlert() {
+        var urlTextField: UITextField?
         let alert = UIAlertController(title: nil, message: "Add new link", preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default) { (action) in
-            guard let text = alert.textFields?.first?.text else { return }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let okAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            guard let text = urlTextField?.text else { return }
             let validator = URLValidator()
             if validator.isValid(text: text) {
                 UserDefaults.standard.setValue([text], forKey: "urls")
                 self.reloadData()
             } else {
                 alert.message = "Invalid link try again."
-                let action = UIAlertAction(title: "Cancel", style: .cancel)
-                alert.addAction(action)
                 self.present(alert, animated: true)
             }
         }
-        alert.addAction(action)
-        alert.addTextField()
+        alert.addTextField { textField -> Void in
+            urlTextField = textField
+            textField.placeholder = "Rss url"
+        }
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
         present(alert, animated: true)
     }
     
@@ -82,6 +86,10 @@ extension SettingsTableViewController {
         cell.textLabel?.text = urls?[indexPath]
         return cell
     }
+    
+    func saveURL(url: [String]) {
+        UserDefaults.standard.set(url, forKey: "urls")
+    }
 }
 
 extension SettingsTableViewController: SettingsViewInput {
@@ -90,8 +98,9 @@ extension SettingsTableViewController: SettingsViewInput {
             return output.returnUrls()
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: "urls")
             self.urls = newValue
+            guard let url = newValue else { return }
+            saveURL(url: url)
         }
     }
     

@@ -22,8 +22,10 @@ extension FeedPresenter: FeedViewOutput {
     func triggerViewReadyEvent() {
         view?.setupInitialState()
         if let urls = urls, let urlString = urls.first, let url = URL(string: urlString) {
+            print("if let urls")
             parseURL(url: url)
         }
+        print("TriggerViewReadyEvent")
     }
     
     func triggerViewWillAppearEvent() {
@@ -55,18 +57,25 @@ extension FeedPresenter: FeedViewOutput {
 // MARK: - Logic
 private extension FeedPresenter {
     func parseURL(url: URL) {
-        feedParser.parseFeed(feedUrl: url) { [weak self] (items) in
-            self?.items = items
-            assert(self?.items != nil , "no values")
-            self?.view?.reloadData()
+        feedParser.parseFeed(feedUrl: url) { (items) in
+            self.items = items
+            print("parseURL")
+            assert(self.items.isEmpty == false)
+            self.reloadNewLinkButton()
+            self.view?.reloadData()
         }
     }
     
     func reloadNewLinkButton() {
         if items.isEmpty {
+            print("items.isEmpty")
             view?.showNewLinkButton()
         } else {
-            view?.hideNewLinkButton()
+            print("items.notEmpty")
+            print(items.first)
+            OperationQueue.main.addOperation {
+                self.view?.hideNewLinkButton()
+            }
         }
     }
 }

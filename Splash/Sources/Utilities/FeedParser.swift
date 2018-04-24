@@ -35,15 +35,15 @@ class FeedParser: NSObject {
         self.completionHandler = completionHandler
         
         let request = URLRequest(url: feedUrl)
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: request) { [weak self] (data, response, error) in
             guard let data = data
                 else {
                     debugPrint(error ?? "Error is nil")
                     return
             }
-            self.parser = XMLParser(data: data)
-            self.parser.delegate = self
-            self.parser.parse()
+            self?.parser = XMLParser(data: data)
+            self?.parser.delegate = self
+            self?.parser.parse()
         }
         task.resume()
     }
