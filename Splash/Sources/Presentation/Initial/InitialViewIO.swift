@@ -10,6 +10,7 @@ import Foundation
 
 protocol InitialViewInput: class {
     func setupInitialState()
+    func openMainScreen()
 }
 
 protocol InitialViewOutput: class {

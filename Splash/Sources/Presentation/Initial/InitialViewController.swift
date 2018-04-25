@@ -10,7 +10,7 @@ import UIKit
 
 class InitialViewController: UIViewController {
     // MARK: - Outlets
-    @IBOutlet weak var startupImage: UIImageView!
+    @IBOutlet private weak var startupImage: UIImageView!
     
     // MARK: - Entities
     var output: InitialViewOutput {
@@ -24,14 +24,15 @@ class InitialViewController: UIViewController {
         super.viewDidLoad()
         output.triggerViewReadyEvent()
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        performSegue(withIdentifier: "GoToTabBar", sender: self)
-    }
 }
 
+// MARK: - InitialViewInput
 extension InitialViewController: InitialViewInput {
     func setupInitialState() {
     
+    }
+
+    func openMainScreen() {
+        performSegue(withIdentifier: "GoToTabBar", sender: self)
     }
 }

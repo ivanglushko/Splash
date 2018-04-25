@@ -26,7 +26,11 @@ class FeedTableViewController: UITableViewController {
         button.addTarget(self, action: #selector(transferToSettings), for: .touchUpInside)
         return button
     }()
-    
+
+    // ДА. ЭТО ЖОСКО.
+    // Мне не нравится: пользователь был на одном экране, тут его перебрасывают в настройки, там ему кнопку добавления ОПЯТЬ жать
+    // Короче, кнопку добавления давай выпиливать полностью с этого экрана. Все будет в настройках
+    // А как выпилишь, так мне скажешь, я проверю, чтобы тут ничего лишнего не оказалось
     @objc func transferToSettings() {
         self.tabBarController?.selectedIndex = 2
     }
@@ -44,7 +48,6 @@ class FeedTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         output.triggerViewReadyEvent()
-        print("ViewDidLoad")
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -67,7 +70,7 @@ extension FeedTableViewController {
             debugPrint("\(#file): Can't dequeue reusable cell with identifier \(kArticleCellReuseId)")
             return UITableViewCell()
         }
-        print("configuring cell")
+
         let item = output.item(for: indexPath)
         cell.configure(with: item)
         
@@ -98,10 +101,14 @@ extension FeedTableViewController: FeedViewInput {
     }
     
     func showNewLinkButton() {
-        newLinkButton.isHidden = false
+        OperationQueue.main.addOperation {
+            self.newLinkButton.isHidden = false
+        }
     }
     
     func hideNewLinkButton() {
-        newLinkButton.isHidden = true
+        OperationQueue.main.addOperation {
+            self.newLinkButton.isHidden = true
+        }
     }
 }

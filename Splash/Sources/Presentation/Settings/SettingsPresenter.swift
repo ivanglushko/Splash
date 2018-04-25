@@ -11,9 +11,9 @@ import Foundation
 class SettingsPresenter {
     
     weak var view: SettingsViewInput?
-    
-    fileprivate let urls = UserDefaults.standard.value(forKey: "urls") as? [String]
-    fileprivate let feedParser = FeedParser()
+    // fileprivate уже можно на private менять, если работает в одном контексте класса
+    private let urls = UserDefaults.standard.value(forKey: "urls") as? [String]
+    private let feedParser = FeedParser()
     
 }
 

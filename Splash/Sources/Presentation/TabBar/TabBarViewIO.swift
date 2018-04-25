@@ -8,10 +8,12 @@
 
 import Foundation
 
+// FIXME: Скобочки не должны быть прилеплены
 protocol TabBarViewInput: class{
     
 }
 
+// FIXME: Скобочки не должны быть прилеплены
 protocol TabBarViewOutput: class{
     
 }
