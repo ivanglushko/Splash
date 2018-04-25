@@ -10,5 +10,5 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
     
-    
+// FIXME: Лишний отступ
 }

@@ -25,7 +25,11 @@ class SettingsTableViewController: UITableViewController {
     }
 }
 
+// Прям капитанский MARK :)
 // MARK: - Alerts
+
+// TODO: Заюзай эту хуйню, чтобы было меньше кода. Как установить там в конце написано. Просто скачать и в Utilities запихать
+// https://github.com/dillidon/alerts-and-pickers
 extension SettingsTableViewController {
     func buildAddAlert() {
         var urlTextField: UITextField?
@@ -93,6 +97,7 @@ extension SettingsTableViewController {
 }
 
 extension SettingsTableViewController: SettingsViewInput {
+    // Такое было в Feed, из-за этой дикости может и не работать. Пока не трогай, правь другие моменты)
     var urls: [String]? {
         get {
             return output.returnUrls()

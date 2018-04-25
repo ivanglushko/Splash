@@ -17,8 +17,10 @@ extension AppDelegate: UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow()
         window?.makeKeyAndVisible()
-        let storyboard = UIStoryboard(name: "InitialViewController", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "InitialViewController")
+
+        let storyboardViewControllerName = "InitialViewController"
+        let storyboard = UIStoryboard(name: storyboardViewControllerName, bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: storyboardViewControllerName)
         window?.rootViewController = initialViewController
         
         return true

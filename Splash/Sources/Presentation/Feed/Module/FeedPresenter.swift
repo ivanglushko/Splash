@@ -11,8 +11,7 @@ import Foundation
 // MARK: - FeedPresenter
 class FeedPresenter {
     weak var view: FeedViewInput?
-    
-    private let urls = UserDefaults.standard.value(forKey: "urls") as? [String]
+
     private let feedParser = FeedParser()
     private var items: [ArticleItem] = []
 }
@@ -21,11 +20,12 @@ class FeedPresenter {
 extension FeedPresenter: FeedViewOutput {
     func triggerViewReadyEvent() {
         view?.setupInitialState()
-        if let urls = urls, let urlString = urls.first, let url = URL(string: urlString) {
-            print("if let urls")
+
+        // Заметил, что urls вызывается только тут, поэтому перенес сюда
+        guard let urlsStrings = UserDefaults.standard.value(forKey: "urls") as? [String] else { return }
+        if let urlString = urlsStrings.first, let url = URL(string: urlString) {
             parseURL(url: url)
         }
-        print("TriggerViewReadyEvent")
     }
     
     func triggerViewWillAppearEvent() {
@@ -57,25 +57,25 @@ extension FeedPresenter: FeedViewOutput {
 // MARK: - Logic
 private extension FeedPresenter {
     func parseURL(url: URL) {
+        // Убрал всю портянку в отдельный метод для лучшего понимания
         feedParser.parseFeed(feedUrl: url) { (items) in
-            self.items = items
-            print("parseURL")
-            assert(self.items.isEmpty == false)
-            self.reloadNewLinkButton()
-            self.view?.reloadData()
+            self.didParseURL(with: items)
         }
+    }
+
+    func didParseURL(with items: [ArticleItem]) {
+        self.items = items
+        // Что такое assert? Расскажи-ка :)
+        // assert(self.items.isEmpty == false)
+        self.reloadNewLinkButton()
+        self.view?.reloadData()
     }
     
     func reloadNewLinkButton() {
         if items.isEmpty {
-            print("items.isEmpty")
             view?.showNewLinkButton()
         } else {
-            print("items.notEmpty")
-            print(items.first)
-            OperationQueue.main.addOperation {
-                self.view?.hideNewLinkButton()
-            }
+            view?.hideNewLinkButton()
         }
     }
 }
