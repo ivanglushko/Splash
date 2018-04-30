@@ -33,6 +33,8 @@ extension InitialViewController: InitialViewInput {
     }
 
     func openMainScreen() {
+        // FIXME: Здесь нужно делать TabBar рутовым вью-контроллером, а не просто показывать его
+        // Объяснять сейчас не стоит, так как это уровень upper-junior, но связано это с иерархией ViewController'ов
         performSegue(withIdentifier: "GoToTabBar", sender: self)
     }
 }
