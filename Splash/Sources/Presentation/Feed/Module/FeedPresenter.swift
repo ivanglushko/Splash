@@ -20,20 +20,22 @@ class FeedPresenter {
 extension FeedPresenter: FeedViewOutput {
     func triggerViewReadyEvent() {
         view?.setupInitialState()
-
-        // Заметил, что urls вызывается только тут, поэтому перенес сюда
         guard let urlsStrings = UserDefaults.standard.value(forKey: "urls") as? [String] else { return }
         if let urlString = urlsStrings.first, let url = URL(string: urlString) {
-            parseURL(url: url)
+            DispatchQueue.main.async {
+                self.parseURL(url: url)
+            }
+            
         }
+        
+        print("Items after parsing \(items.count)")
     }
     
     func triggerViewWillAppearEvent() {
-        reloadNewLinkButton()
+        reloadNewLinkLabel()
     }
     
     func triggerAddNewChannelEvent() {
-        // Здесь логика того, что делать когда нажмем добавить новую ссылку на новостной канал
         debugPrint("\(#function) in \(#file) without implementation")
     }
     
@@ -49,33 +51,34 @@ extension FeedPresenter: FeedViewOutput {
         return items[indexPath.row]
     }
     
-    func tapArticle(with indexPath: IndexPath) {
-        debugPrint("\(#function) in \(#file) without implementation")
+    func tapArticle(with indexPath: Int) {
+        items[indexPath].expanded = !items[indexPath].expanded
+        view?.reloadData()
     }
 }
 
 // MARK: - Logic
 private extension FeedPresenter {
     func parseURL(url: URL) {
-        // Убрал всю портянку в отдельный метод для лучшего понимания
         feedParser.parseFeed(feedUrl: url) { (items) in
+            print("Started parsing")
             self.didParseURL(with: items)
         }
     }
 
     func didParseURL(with items: [ArticleItem]) {
         self.items = items
-        // Что такое assert? Расскажи-ка :)
-        // assert(self.items.isEmpty == false)
-        self.reloadNewLinkButton()
-        self.view?.reloadData()
+        assert(self.items.isEmpty == false)
+        print("Items in closure passed to self.items \(self.items.count)")
+        self.reloadNewLinkLabel()
     }
     
-    func reloadNewLinkButton() {
+    func reloadNewLinkLabel() {
         if items.isEmpty {
-            view?.showNewLinkButton()
+            view?.showHints()
         } else {
-            view?.hideNewLinkButton()
+            view?.hideHints()
+            view?.reloadData()
         }
     }
 }

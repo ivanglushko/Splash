@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="fxS-ap-sFN">
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" largeTitles="YES" id="fxS-ap-sFN">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="96"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textAttributes key="titleTextAttributes">
@@ -25,7 +25,7 @@
                             </textAttributes>
                             <items>
                                 <navigationItem title="Blog" id="8hG-H6-KQj">
-                                    <barButtonItem key="rightBarButtonItem" systemItem="add" id="0hs-JC-61f">
+                                    <barButtonItem key="rightBarButtonItem" title="Item" image="pen" style="plain" id="0hs-JC-61f">
                                         <connections>
                                             <action selector="addNote:" destination="bfh-or-HjI" id="Quq-sU-Rzr"/>
                                         </connections>
@@ -68,5 +68,6 @@
     </scenes>
     <resources>
         <image name="blogIcon" width="25" height="25"/>
+        <image name="pen" width="56" height="45"/>
     </resources>
 </document>

@@ -8,6 +8,9 @@
 
 import UIKit
 
+
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder {
     var window: UIWindow?
@@ -15,6 +18,7 @@ class AppDelegate: UIResponder {
 
 extension AppDelegate: UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        application.isStatusBarHidden = true
         window = UIWindow()
         window?.makeKeyAndVisible()
 
@@ -22,6 +26,7 @@ extension AppDelegate: UIApplicationDelegate {
         let storyboard = UIStoryboard(name: storyboardViewControllerName, bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: storyboardViewControllerName)
         window?.rootViewController = initialViewController
+        
         
         return true
     }

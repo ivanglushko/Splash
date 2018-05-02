@@ -10,48 +10,51 @@ import UIKit
 
 class FeedTableViewController: UITableViewController {
     // MARK: - Outlets
-    private lazy var newLinkButton: UIButton = {
-        // Отказываемся от такой кнопки
-        // Ее нужно либо поверх показывать, либо делать обычный плюсик как айтем в NavigationBar'e
-        let button = UIButton()
-        let screenWidth = UIScreen.main.bounds.width
-        let screenHeight = UIScreen.main.bounds.height
-        button.frame = CGRect(x: 16, y: (2*screenHeight / 3), width: (screenWidth - 32), height: 64.0)
-        button.titleLabel?.font = UIFont(name: "Avenir Next", size: 30.0)
-        button.titleLabel?.text = "Add new link!"
-        button.setTitle("Add new link", for: .normal)
-        button.backgroundColor = UIColor.green
-        button.alpha = 0.65
-        button.layer.cornerRadius = 30.0
-        button.addTarget(self, action: #selector(transferToSettings), for: .touchUpInside)
-        return button
+    private lazy var newLinkLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "Avenir Next", size: 25)
+        label.text = "Add new link!"
+        let xPoint = (UIScreen.main.bounds.width / 4)
+        let yPoint = (UIScreen.main.bounds.height / 4)
+        label.frame = CGRect(x: xPoint, y: yPoint, width: 200.0, height: 50.0)
+        return label
     }()
-
-    // ДА. ЭТО ЖОСКО.
-    // Мне не нравится: пользователь был на одном экране, тут его перебрасывают в настройки, там ему кнопку добавления ОПЯТЬ жать
-    // Короче, кнопку добавления давай выпиливать полностью с этого экрана. Все будет в настройках
-    // А как выпилишь, так мне скажешь, я проверю, чтобы тут ничего лишнего не оказалось
-    @objc func transferToSettings() {
-        self.tabBarController?.selectedIndex = 2
-    }
+    
+    private lazy var arrowHintView: UIView = {
+        let view = UIView()
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "arrowHint")
+        let width = UIScreen.main.bounds.width
+        let height = UIScreen.main.bounds.height
+        let tabBarHeight = tabBarController!.tabBar.frame.height
+        let xPoint = ( width - ((width / 3) / 2) - 64)
+        let yPoint = (height - 128) - tabBarHeight
+        view.frame = CGRect(x: xPoint, y: yPoint, width: 128, height: 128)
+        imageView.frame = CGRect(x: 0, y: 0, width: 128, height: 128)
+        view.addSubview(imageView)
+        return view
+    }()
+    
     
     // MARK: - Entities
     private let kArticleCellReuseId = "ArticleCell"
     
-    private var output: FeedViewOutput {
-        let presenter = FeedPresenter()
-        presenter.view = self
-        return presenter
-    }
+    
+    let presenter = FeedPresenter()
+    private var output: FeedViewOutput!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.view = self
+        output = presenter
         output.triggerViewReadyEvent()
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         output.triggerViewWillAppearEvent()
+        animateArrow(view: arrowHintView)
     }
 }
 
@@ -62,6 +65,7 @@ extension FeedTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("Number of rows \(output.numberOfRows())")
         return output.numberOfRows()
     }
     
@@ -73,6 +77,7 @@ extension FeedTableViewController {
 
         let item = output.item(for: indexPath)
         cell.configure(with: item)
+        print("Cell configured")
         
         return cell
     }
@@ -81,34 +86,52 @@ extension FeedTableViewController {
 // MARK: - UITableViewDelegate
 extension FeedTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        output.tapArticle(with: indexPath)
+        output.tapArticle(with: indexPath.row)
     }
 }
+
+
+// MARK: - Animations
+extension FeedTableViewController {
+    func animateArrow(view: UIView) {
+        UIView.animate(withDuration: 1) {
+            view.center.y += 50
+            view.alpha = 1
+            view.center.y += 50
+        }
+    }
+}
+
 
 // MARK: - FeedViewInput
 extension FeedTableViewController: FeedViewInput {
     func setupInitialState() {
         tableView.estimatedRowHeight = 155.0
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.register(ArticleCell.self, forCellReuseIdentifier: kArticleCellReuseId)
-        tableView.addSubview(newLinkButton)
+        tableView.addSubview(newLinkLabel)
+        tableView.addSubview(arrowHintView)
+        arrowHintView.center.y -= 100
+        arrowHintView.alpha = 0
     }
 
     func reloadData() {
+
         OperationQueue.main.addOperation {
             self.tableView.reloadData()
         }
     }
     
-    func showNewLinkButton() {
+    func showHints() {
         OperationQueue.main.addOperation {
-            self.newLinkButton.isHidden = false
+            self.newLinkLabel.isHidden = false
+            self.arrowHintView.isHidden = false
         }
     }
     
-    func hideNewLinkButton() {
+    func hideHints() {
         OperationQueue.main.addOperation {
-            self.newLinkButton.isHidden = true
+            self.newLinkLabel.isHidden = true
+            self.arrowHintView.isHidden = true
         }
     }
 }

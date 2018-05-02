@@ -14,6 +14,13 @@ class AddNoteViewController: UIViewController {
     @IBOutlet weak var textFill: UITextView!
     
     
+    @IBAction func addNote(_ sender: UIButton) {
+        if textTitle.text! == "" || textFill.text! == "" {
+            dismiss(animated: true)
+        }
+        
+    }
+    
 }
 
 // MARK: - Placeholder

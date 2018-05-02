@@ -7,14 +7,13 @@
 //
 
 import Foundation
-// FIXME: скобочки
-protocol SettingsViewInput: class{
-    // FIXME: скобочки
+
+protocol SettingsViewInput: class {
     var urls: [String]? {get set}
     func reloadData()
 }
-// FIXME: скобочки
-protocol SettingsViewOutput: class{
+
+protocol SettingsViewOutput: class {
     func tappedOnLink(index: Int)
     func triggerViewReadyEvent()
     func returnUrls() -> [String]?

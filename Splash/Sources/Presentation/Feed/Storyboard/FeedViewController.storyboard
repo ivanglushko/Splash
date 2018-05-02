@@ -19,60 +19,46 @@
         <scene sceneID="NVg-KI-aLD">
             <objects>
                 <tableViewController id="JOD-wZ-Sag" customClass="FeedTableViewController" customModule="Splash" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ozu-E3-2GS">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ozu-E3-2GS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="w4h-bh-17l">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="26"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="VbJ-xZ-izB">
-                                    <rect key="frame" x="118" y="2" width="139" height="23"/>
-                                    <segments>
-                                        <segment title="All"/>
-                                        <segment title="Favorites"/>
-                                    </segments>
-                                </segmentedControl>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="bottom" secondItem="VbJ-xZ-izB" secondAttribute="bottom" constant="2" id="72d-Ve-wcv"/>
-                                <constraint firstItem="VbJ-xZ-izB" firstAttribute="centerY" secondItem="w4h-bh-17l" secondAttribute="centerY" id="JA4-98-MiR"/>
-                                <constraint firstItem="VbJ-xZ-izB" firstAttribute="centerX" secondItem="w4h-bh-17l" secondAttribute="centerX" id="lBh-tb-EtU"/>
-                                <constraint firstItem="VbJ-xZ-izB" firstAttribute="top" secondItem="w4h-bh-17l" secondAttribute="top" constant="2" id="lyG-R3-w7S"/>
-                            </constraints>
-                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ArticleCell" rowHeight="125" id="brG-q1-Q1L" customClass="ArticleCell" customModule="Splash" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="54" width="375" height="125"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="125"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="brG-q1-Q1L" id="cds-T5-bz1">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="124.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="125"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="coT-ow-oju">
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="coT-ow-oju">
                                             <rect key="frame" x="8" y="8" width="359" height="108.5"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D11-BR-4u8" userLabel="Title">
-                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="44.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D11-BR-4u8" userLabel="Title">
+                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="27.5"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qj-63-acp" userLabel="Date">
-                                                    <rect key="frame" x="0.0" y="44.5" width="28.5" height="26"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qj-63-acp" userLabel="Date">
+                                                    <rect key="frame" x="0.0" y="27.5" width="28.5" height="57.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fM6-uK-ahb" userLabel="Description">
-                                                    <rect key="frame" x="0.0" y="70.5" width="90" height="38"/>
+                                                    <rect key="frame" x="0.0" y="85" width="359" height="23.5"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="fM6-uK-ahb" secondAttribute="trailing" id="NYI-EN-eMS"/>
+                                                <constraint firstItem="fM6-uK-ahb" firstAttribute="leading" secondItem="coT-ow-oju" secondAttribute="leading" id="OMh-A6-IJJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="D11-BR-4u8" secondAttribute="trailing" id="cVk-He-4Jf"/>
+                                                <constraint firstItem="D11-BR-4u8" firstAttribute="leading" secondItem="coT-ow-oju" secondAttribute="leading" id="hPn-Bs-BiS"/>
+                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
@@ -83,9 +69,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="Date" destination="7qj-63-acp" id="nrT-1o-iuE"/>
-                                    <outlet property="Description" destination="fM6-uK-ahb" id="63P-qb-czE"/>
-                                    <outlet property="Title" destination="D11-BR-4u8" id="Ve0-hu-dz5"/>
+                                    <outlet property="dateLabel" destination="7qj-63-acp" id="YZK-6L-usu"/>
+                                    <outlet property="descriptionLabel" destination="fM6-uK-ahb" id="bnD-3g-wMs"/>
+                                    <outlet property="titleLabel" destination="D11-BR-4u8" id="o8y-Bi-Ffb"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

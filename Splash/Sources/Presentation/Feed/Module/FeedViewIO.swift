@@ -11,8 +11,8 @@ import Foundation
 protocol FeedViewInput: class {
     func setupInitialState()
     func reloadData()
-    func showNewLinkButton()
-    func hideNewLinkButton()
+    func showHints()
+    func hideHints()
 }
 
 protocol FeedViewOutput: class {
@@ -29,5 +29,5 @@ protocol FeedViewOutput: class {
     func item(for indexPath: IndexPath) -> ArticleItem
     
     // UITableViewDelegate
-    func tapArticle(with indexPath: IndexPath)
+    func tapArticle(with indexPath: Int)
 }

@@ -8,12 +8,11 @@
 
 import Foundation
 
-// FIXME: Скобочки не должны быть прилеплены
-protocol TabBarViewInput: class{
+
+protocol TabBarViewInput: class {
     
 }
 
-// FIXME: Скобочки не должны быть прилеплены
-protocol TabBarViewOutput: class{
+protocol TabBarViewOutput: class {
     
 }
