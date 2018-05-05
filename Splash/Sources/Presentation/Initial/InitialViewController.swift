@@ -11,8 +11,7 @@ import UIKit
 class InitialViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet private weak var startupImage: UIImageView!
-    
-    
+
     // MARK: - Entities
     var output: InitialViewOutput {
         let presenter = InitialPresenter()

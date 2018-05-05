@@ -8,10 +8,10 @@
 
 import Foundation
 
-protocol BlogViewInput: class{
+protocol BlogViewInput: class {
     
 }
 
-protocol BlogViewOutput: class{
+protocol BlogViewOutput: class {
     
 }

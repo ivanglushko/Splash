@@ -34,12 +34,10 @@ class FeedTableViewController: UITableViewController {
         view.addSubview(imageView)
         return view
     }()
-    
-    
+
     // MARK: - Entities
     private let kArticleCellReuseId = "ArticleCell"
-    
-    
+
     let presenter = FeedPresenter()
     private var output: FeedViewOutput!
     
@@ -90,9 +88,8 @@ extension FeedTableViewController {
     }
 }
 
-
 // MARK: - Animations
-extension FeedTableViewController {
+private extension FeedTableViewController {
     func animateArrow(view: UIView) {
         UIView.animate(withDuration: 1) {
             view.center.y += 50
@@ -101,7 +98,6 @@ extension FeedTableViewController {
         }
     }
 }
-
 
 // MARK: - FeedViewInput
 extension FeedTableViewController: FeedViewInput {
@@ -115,23 +111,16 @@ extension FeedTableViewController: FeedViewInput {
     }
 
     func reloadData() {
-
-        OperationQueue.main.addOperation {
-            self.tableView.reloadData()
-        }
+        tableView.reloadData()
     }
     
     func showHints() {
-        OperationQueue.main.addOperation {
-            self.newLinkLabel.isHidden = false
-            self.arrowHintView.isHidden = false
-        }
+        newLinkLabel.isHidden = false
+        arrowHintView.isHidden = false
     }
     
     func hideHints() {
-        OperationQueue.main.addOperation {
-            self.newLinkLabel.isHidden = true
-            self.arrowHintView.isHidden = true
-        }
+        newLinkLabel.isHidden = true
+        arrowHintView.isHidden = true
     }
 }

@@ -9,21 +9,15 @@
 import UIKit
 
 class AddNoteViewController: UIViewController {
-    
-    @IBOutlet weak var textTitle: UITextView!
-    @IBOutlet weak var textFill: UITextView!
-    
-    
-    @IBAction func addNote(_ sender: UIButton) {
+    @IBOutlet private weak var textTitle: UITextView!
+    @IBOutlet private weak var textFill: UITextView!
+
+    @IBAction private func addNote(_ sender: UIButton) {
         if textTitle.text! == "" || textFill.text! == "" {
             dismiss(animated: true)
         }
-        
     }
-    
 }
-
-// MARK: - Placeholder
 
 extension AddNoteViewController: UITextViewDelegate {
     override func viewDidLoad() {
@@ -44,6 +38,7 @@ extension AddNoteViewController: UITextViewDelegate {
             setPlaceholder(textView: textView)
         }
     }
+
     func setPlaceholder(textView: UITextView) {
         textView.delegate = self
         textView.textColor = .lightGray

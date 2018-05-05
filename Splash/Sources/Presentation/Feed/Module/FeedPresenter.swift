@@ -8,7 +8,6 @@
 
 import Foundation
 
-// MARK: - FeedPresenter
 class FeedPresenter {
     weak var view: FeedViewInput?
 
@@ -16,29 +15,23 @@ class FeedPresenter {
     private var items: [ArticleItem] = []
 }
 
-// MARK: - FeedViewOutput
 extension FeedPresenter: FeedViewOutput {
+    // MARK: Lifecycle
     func triggerViewReadyEvent() {
         view?.setupInitialState()
-        guard let urlsStrings = UserDefaults.standard.value(forKey: "urls") as? [String] else { return }
-        if let urlString = urlsStrings.first, let url = URL(string: urlString) {
-            DispatchQueue.main.async {
-                self.parseURL(url: url)
-            }
-            
-        }
-        
-        print("Items after parsing \(items.count)")
+        startParsingURLs()
     }
-    
+
     func triggerViewWillAppearEvent() {
         reloadNewLinkLabel()
     }
-    
+
+    // MARK: User actions
     func triggerAddNewChannelEvent() {
         debugPrint("\(#function) in \(#file) without implementation")
     }
-    
+
+    // MARK: UITableViewDataSource
     func numberOfSections() -> Int {
         return 1
     }
@@ -50,26 +43,34 @@ extension FeedPresenter: FeedViewOutput {
     func item(for indexPath: IndexPath) -> ArticleItem {
         return items[indexPath.row]
     }
-    
+
+    // MARK: UITableViewDelegate
     func tapArticle(with indexPath: Int) {
         items[indexPath].expanded = !items[indexPath].expanded
         view?.reloadData()
     }
 }
 
-// MARK: - Logic
+// MARK: - Private helpers
 private extension FeedPresenter {
+    func startParsingURLs() {
+        guard let urlsStrings = UserDefaults.standard.value(forKey: "urls") as? [String] else { return }
+
+        if let urlString = urlsStrings.first, let url = URL(string: urlString) {
+            DispatchQueue.main.async {
+                self.parseURL(url: url)
+            }
+        }
+    }
+
     func parseURL(url: URL) {
         feedParser.parseFeed(feedUrl: url) { (items) in
-            print("Started parsing")
             self.didParseURL(with: items)
         }
     }
 
     func didParseURL(with items: [ArticleItem]) {
         self.items = items
-        assert(self.items.isEmpty == false)
-        print("Items in closure passed to self.items \(self.items.count)")
         self.reloadNewLinkLabel()
     }
     

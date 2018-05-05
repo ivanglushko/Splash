@@ -8,10 +8,10 @@
 
 import Foundation
 
-protocol AddNoteViewInput: class{
+protocol AddNoteViewInput: class {
     
 }
 
-protocol AddNoteViewOutput: class{
+protocol AddNoteViewOutput: class {
     
 }
