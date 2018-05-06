@@ -8,25 +8,20 @@
 
 import UIKit
 
-
 class SettingsTableViewController: UITableViewController {
     var output: SettingsViewOutput {
         let presenter = SettingsPresenter()
         presenter.view = self
         return presenter
     }
-    
-    
-    @IBAction func addLink(_ sender: UIBarButtonItem) {
+
+    @IBAction private func addLink(_ sender: UIBarButtonItem) {
         buildAddAlert()
     }
-    @IBAction func deleteAllUrls(_ sender: UIBarButtonItem) {
+    @IBAction private func deleteAllUrls(_ sender: UIBarButtonItem) {
         buildDeleteAllUrlsAlert()
     }
 }
-
-// Прям капитанский MARK :)
-// MARK: - Alerts
 
 // TODO: Заюзай эту хуйню, чтобы было меньше кода. Как установить там в конце написано. Просто скачать и в Utilities запихать
 // https://github.com/dillidon/alerts-and-pickers
@@ -70,7 +65,6 @@ extension SettingsTableViewController {
 
 // MARK: - TableView Data Source
 extension SettingsTableViewController {
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return urls?.count ?? 0
     }

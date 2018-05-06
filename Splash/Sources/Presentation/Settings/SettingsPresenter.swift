@@ -9,8 +9,8 @@
 import Foundation
 
 class SettingsPresenter {
-    
     weak var view: SettingsViewInput?
+    
     private let urls = UserDefaults.standard.value(forKey: "urls") as? [String]
     private let feedParser = FeedParser()
     

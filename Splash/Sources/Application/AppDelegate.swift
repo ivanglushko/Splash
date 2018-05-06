@@ -8,9 +8,6 @@
 
 import UIKit
 
-
-
-
 @UIApplicationMain
 class AppDelegate: UIResponder {
     var window: UIWindow?
@@ -26,8 +23,7 @@ extension AppDelegate: UIApplicationDelegate {
         let storyboard = UIStoryboard(name: storyboardViewControllerName, bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: storyboardViewControllerName)
         window?.rootViewController = initialViewController
-        
-        
+
         return true
     }
 }

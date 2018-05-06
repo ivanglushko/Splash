@@ -9,18 +9,16 @@
 import UIKit
 
 class ArticleCell: UITableViewCell {
-    
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
-    
-    
-    
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
+
+    private let defaultLinesNumber = 4
+
     func configure(with item: ArticleItem) {
         titleLabel.text = item.title
         dateLabel.text = item.pubDateString
         descriptionLabel.text = item.description
-        descriptionLabel.numberOfLines = item.expanded ? 0 : 4   // 4 выглядит как магическая константа, кстати
-        
+        descriptionLabel.numberOfLines = item.expanded ? 0 : defaultLinesNumber
     }
 }
