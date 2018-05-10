@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,7 +24,7 @@
                             </textAttributes>
                             <items>
                                 <navigationItem title="Blog" id="8hG-H6-KQj">
-                                    <barButtonItem key="rightBarButtonItem" title="Item" image="pen" style="plain" id="0hs-JC-61f">
+                                    <barButtonItem key="rightBarButtonItem" image="pen" style="plain" id="0hs-JC-61f">
                                         <connections>
                                             <action selector="addNote:" destination="bfh-or-HjI" id="Quq-sU-Rzr"/>
                                         </connections>

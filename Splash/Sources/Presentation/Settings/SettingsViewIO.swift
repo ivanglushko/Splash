@@ -9,12 +9,12 @@
 import Foundation
 
 protocol SettingsViewInput: class {
-    var urls: [String]? {get set}
     func reloadData()
 }
 
 protocol SettingsViewOutput: class {
-    func tappedOnLink(index: Int)
+    func numberOfRows() -> Int
+    func url(for indexPath: IndexPath) -> String?
+    func tapLink(with indexPath: Int)
     func triggerViewReadyEvent()
-    func returnUrls() -> [String]?
 }

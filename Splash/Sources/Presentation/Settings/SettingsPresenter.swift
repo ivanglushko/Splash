@@ -11,25 +11,33 @@ import Foundation
 class SettingsPresenter {
     weak var view: SettingsViewInput?
     
-    private let urls = UserDefaults.standard.value(forKey: "urls") as? [String]
+    private var urls = UserDefaults.standard.value(forKey: "urls") as? [String]
     private let feedParser = FeedParser()
     
 }
 
 extension SettingsPresenter: SettingsViewOutput {
-    func triggerViewReadyEvent() {
-        
+    // MARK: UITableViewDataSource
+    
+    func numberOfRows() -> Int {
+            return urls?.count ?? 0
     }
     
-    func tappedOnLink(index: Int) {
-        if let first = view?.urls?.remove(at: index) {
-            view?.urls?.insert(first, at: 0)
+    func url(for indexPath: IndexPath) -> String? {
+        return urls?[indexPath.row]
+    }
+    
+    // MARK: UITableViewDelegate
+    func tapLink(with indexPath: Int) {
+        if let first = urls?.remove(at: indexPath) {
+            urls?.insert(first, at: 0)
             view?.reloadData()
         }
     }
     
-    func returnUrls() -> [String]? {
-        return urls
+    func triggerViewReadyEvent() {
+        
     }
-    
+
+  
 }

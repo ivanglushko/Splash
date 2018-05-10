@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder {
     var window: UIWindow?
+
 }
 
 extension AppDelegate: UIApplicationDelegate {
@@ -26,4 +28,9 @@ extension AppDelegate: UIApplicationDelegate {
 
         return true
     }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        CoreDataHelper.save()
+    }
 }
+
