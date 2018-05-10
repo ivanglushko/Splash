@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13533" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Stored" representedClassName="Stored" syncable="YES">
+        <attribute name="isFirstTimeLaunched" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="item" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="note" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="urls" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Stored" positionX="-63" positionY="-18" width="128" height="105"/>
+    </elements>
+</model>
