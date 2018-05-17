@@ -81,13 +81,15 @@
 		FA2E0BB6209FD03400E0DEE7 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E0B81209FD03400E0DEE7 /* Label.swift */; };
 		FA2E0BB7209FD03400E0DEE7 /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E0B82209FD03400E0DEE7 /* SegmentedControl.swift */; };
 		FA2E0BB8209FD03400E0DEE7 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E0B83209FD03400E0DEE7 /* TextField.swift */; };
+		FA51E7E220ADA65000C68A93 /* Channel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51E7DE20ADA65000C68A93 /* Channel+CoreDataClass.swift */; };
+		FA51E7E320ADA65000C68A93 /* Channel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51E7DF20ADA65000C68A93 /* Channel+CoreDataProperties.swift */; };
+		FA51E7E420ADA65000C68A93 /* Article+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51E7E020ADA65000C68A93 /* Article+CoreDataClass.swift */; };
+		FA51E7E520ADA65000C68A93 /* Article+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51E7E120ADA65000C68A93 /* Article+CoreDataProperties.swift */; };
 		FA6A1A5420A1DA2D005BECBE /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6A1A5320A1DA2D005BECBE /* CoreDataHelper.swift */; };
 		FA6A1A5720A26593005BECBE /* NewLinkLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6A1A5620A26593005BECBE /* NewLinkLabel.swift */; };
 		FA7281C820A3BCE400C35DB5 /* ArrowHintImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7281C720A3BCE400C35DB5 /* ArrowHintImageView.swift */; };
 		FA8FBA4A20713C420029E430 /* ArticleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8FBA4920713C420029E430 /* ArticleItem.swift */; };
 		FA8FBA4C207147A10029E430 /* URLValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8FBA4B207147A10029E430 /* URLValidator.swift */; };
-		FAA5D4C420A119E6009F2C1E /* Stored+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5D4C220A119E6009F2C1E /* Stored+CoreDataClass.swift */; };
-		FAA5D4C520A119E6009F2C1E /* Stored+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5D4C320A119E6009F2C1E /* Stored+CoreDataProperties.swift */; };
 		FADFC2E3206C5AFC000BECFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFC2E2206C5AFC000BECFD /* AppDelegate.swift */; };
 		FADFC2EA206C5AFC000BECFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADFC2E9206C5AFC000BECFD /* Assets.xcassets */; };
 		FADFC2ED206C5AFC000BECFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADFC2EB206C5AFC000BECFD /* LaunchScreen.storyboard */; };
@@ -171,13 +173,15 @@
 		FA2E0B81209FD03400E0DEE7 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		FA2E0B82209FD03400E0DEE7 /* SegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		FA2E0B83209FD03400E0DEE7 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		FA51E7DE20ADA65000C68A93 /* Channel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Channel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FA51E7DF20ADA65000C68A93 /* Channel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Channel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FA51E7E020ADA65000C68A93 /* Article+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FA51E7E120ADA65000C68A93 /* Article+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FA6A1A5320A1DA2D005BECBE /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		FA6A1A5620A26593005BECBE /* NewLinkLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLinkLabel.swift; sourceTree = "<group>"; };
 		FA7281C720A3BCE400C35DB5 /* ArrowHintImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowHintImageView.swift; sourceTree = "<group>"; };
 		FA8FBA4920713C420029E430 /* ArticleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleItem.swift; sourceTree = "<group>"; };
 		FA8FBA4B207147A10029E430 /* URLValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLValidator.swift; sourceTree = "<group>"; };
-		FAA5D4C220A119E6009F2C1E /* Stored+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stored+CoreDataClass.swift"; sourceTree = "<group>"; };
-		FAA5D4C320A119E6009F2C1E /* Stored+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stored+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FADFC2DF206C5AFC000BECFD /* Splash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Splash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADFC2E2206C5AFC000BECFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADFC2E9206C5AFC000BECFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -228,8 +232,10 @@
 		FA1B799720A10E130017F20A /* CoreDataModel */ = {
 			isa = PBXGroup;
 			children = (
-				FAA5D4C220A119E6009F2C1E /* Stored+CoreDataClass.swift */,
-				FAA5D4C320A119E6009F2C1E /* Stored+CoreDataProperties.swift */,
+				FA51E7DE20ADA65000C68A93 /* Channel+CoreDataClass.swift */,
+				FA51E7DF20ADA65000C68A93 /* Channel+CoreDataProperties.swift */,
+				FA51E7E020ADA65000C68A93 /* Article+CoreDataClass.swift */,
+				FA51E7E120ADA65000C68A93 /* Article+CoreDataProperties.swift */,
 				FA6A1A5320A1DA2D005BECBE /* CoreDataHelper.swift */,
 				FA1B799820A10E370017F20A /* Stored.xcdatamodeld */,
 			);
@@ -794,7 +800,6 @@
 				FA2E0B98209FD03400E0DEE7 /* Contact.swift in Sources */,
 				FA2E0B99209FD03400E0DEE7 /* ContactCell.swift in Sources */,
 				FA2E0B87209FD03400E0DEE7 /* Locale+Extensions.swift in Sources */,
-				FAA5D4C520A119E6009F2C1E /* Stored+CoreDataProperties.swift in Sources */,
 				FAF09B64206C762800B74B73 /* AddNoteViewController.swift in Sources */,
 				FA2E0B86209FD03400E0DEE7 /* Date+Extension.swift in Sources */,
 				FA071B9D206ED9F700359F13 /* InitialViewController.swift in Sources */,
@@ -809,8 +814,10 @@
 				FA2E0B84209FD03400E0DEE7 /* Array+Extensions.swift in Sources */,
 				FA2E0B8A209FD03400E0DEE7 /* UIAlertController+Extensions.swift in Sources */,
 				FA2E0B97209FD03400E0DEE7 /* Contacts.swift in Sources */,
+				FA51E7E520ADA65000C68A93 /* Article+CoreDataProperties.swift in Sources */,
 				FA2E0B9A209FD03400E0DEE7 /* DatePickerViewController.swift in Sources */,
 				FA2E0BA2209FD03400E0DEE7 /* CurrencyCell.swift in Sources */,
+				FA51E7E320ADA65000C68A93 /* Channel+CoreDataProperties.swift in Sources */,
 				FA2E0BA4209FD03400E0DEE7 /* LocationPickerViewController.swift in Sources */,
 				FA2E0BAC209FD03400E0DEE7 /* PhotoLayout.swift in Sources */,
 				FA2E0BA8209FD03400E0DEE7 /* Location.swift in Sources */,
@@ -825,6 +832,7 @@
 				FA2E0BAD209FD03400E0DEE7 /* TelegramPickerViewController.swift in Sources */,
 				FA2D6F5C20764FD2002E3414 /* SettingsViewIO.swift in Sources */,
 				FA2D6F44207636F5002E3414 /* InitialViewIO.swift in Sources */,
+				FA51E7E420ADA65000C68A93 /* Article+CoreDataClass.swift in Sources */,
 				FA2E0B8F209FD03400E0DEE7 /* UISearchBar+Extensions.swift in Sources */,
 				FA2E0BB8209FD03400E0DEE7 /* TextField.swift in Sources */,
 				FA7281C820A3BCE400C35DB5 /* ArrowHintImageView.swift in Sources */,
@@ -832,12 +840,12 @@
 				FA2E0B9E209FD03400E0DEE7 /* LocalePickerViewController.swift in Sources */,
 				FA2E0B93209FD03400E0DEE7 /* UIView+Extensions.swift in Sources */,
 				FA2E0B95209FD03400E0DEE7 /* ColorPickerViewController.swift in Sources */,
+				FA51E7E220ADA65000C68A93 /* Channel+CoreDataClass.swift in Sources */,
 				FA2E0BB7209FD03400E0DEE7 /* SegmentedControl.swift in Sources */,
 				FA2E0B9F209FD03400E0DEE7 /* LocaleStore.swift in Sources */,
 				FA2E0B9B209FD03400E0DEE7 /* ImagePickerViewController.swift in Sources */,
 				FA2E0BAE209FD03400E0DEE7 /* ItemWithPhoto.swift in Sources */,
 				2C72C5042073B88500C300B2 /* TabBarViewController.swift in Sources */,
-				FAA5D4C420A119E6009F2C1E /* Stored+CoreDataClass.swift in Sources */,
 				FA2E0B8D209FD03400E0DEE7 /* UIImage+Extensions.swift in Sources */,
 				FA2D6F5420764F7E002E3414 /* TabBarViewIO.swift in Sources */,
 				FA8FBA4A20713C420029E430 /* ArticleItem.swift in Sources */,

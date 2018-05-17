@@ -13,6 +13,7 @@ class FeedPresenter {
     
     private let feedParser = FeedParser()
     private var items: [ArticleItem] = []
+    private var storedItems: [Article] = []
 }
 
 extension FeedPresenter: FeedViewOutput {
@@ -69,6 +70,7 @@ private extension FeedPresenter {
     
     func didParseURL(with items: [ArticleItem]) {
         self.items = items
+        fillStoredItems()
         self.reloadNewLinkLabel()
     }
     
@@ -83,5 +85,21 @@ private extension FeedPresenter {
                 self.view?.reloadData()
             }
         }
+    }
+    
+    func fillStoredItems() {
+        for item in items {
+            let article = Article(entity: CoreDataHelper.articleEntity!, insertInto: CoreDataHelper.context)
+            article.title = item.title
+            article.descriptionString = item.description
+            article.pubDateString = item.pubDateString
+            article.imgUrl = item.imgUrl
+            article.expanded = item.expanded
+            article.isFavourite = false
+            article.id = NSUUID().uuidString
+            CoreDataHelper.save()
+
+        }
+        storedItems = CoreDataHelper.fetch(entity: "Article") as! [Article]
     }
 }

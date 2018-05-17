@@ -10,6 +10,7 @@ import Foundation
 import CoreData
 
 class CoreDataHelper {
+    
     static var context: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
@@ -22,6 +23,7 @@ class CoreDataHelper {
         })
         return container
     }()
+    static let articleEntity = NSEntityDescription.entity(forEntityName: "Article", in: context)
     
 
     
@@ -36,8 +38,8 @@ class CoreDataHelper {
         }
     }
     
-    static func fetch() -> Any {
-        let request = NSFetchRequest<Stored>(entityName: "Stored")
+    static func fetch(entity: String) -> [Any] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
         do {
             let result = try context.fetch(request)
             return result
