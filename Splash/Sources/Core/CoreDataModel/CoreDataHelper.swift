@@ -9,12 +9,15 @@
 import Foundation
 import CoreData
 
-class CoreDataHelper {
+final class CoreDataHelper {
     
-    static var context: NSManagedObjectContext {
+    static var shared = CoreDataHelper()
+    
+    
+    var context: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
-    static private var persistentContainer: NSPersistentContainer = {
+    var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Stored")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
@@ -23,23 +26,32 @@ class CoreDataHelper {
         })
         return container
     }()
-    static let articleEntity = NSEntityDescription.entity(forEntityName: "Article", in: context)
     
-
+    var articleEntity: NSEntityDescription?
+    var isCurrentPredicate = NSPredicate(format: "isCurrent == true")
     
-    static func save() {
+    init() {
+        self.articleEntity  = NSEntityDescription.entity(forEntityName: "Article", in: context)
+    }
+    
+    
+     func save() {
         if context.hasChanges {
             do {
                 try context.save()
             } catch {
-                let nserror = error as NSError
+                let nserror = error
+                print(nserror)
                 fatalError("\(nserror)")
             }
         }
     }
     
-    static func fetch(entity: String) -> [Any] {
+    func fetch(entity: String, predicate: NSPredicate? = nil) -> [Any] {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        if let predicate = predicate {
+            request.predicate = predicate
+        }
         do {
             let result = try context.fetch(request)
             return result
@@ -48,7 +60,17 @@ class CoreDataHelper {
         }
     }
     
-    static func delete(object: NSManagedObject) {
+    func delete(object: NSManagedObject) {
         context.delete(object)
+    }
+    
+    func deleteAll(fetchRequest: NSFetchRequest<NSFetchRequestResult>) {
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try context.execute(deleteRequest)
+        }catch let err {
+            print("Error due deletion: \(err)")
+        }
+        save()
     }
 }

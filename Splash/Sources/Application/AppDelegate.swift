@@ -30,7 +30,7 @@ extension AppDelegate: UIApplicationDelegate {
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
-        CoreDataHelper.save()
+        CoreDataHelper.shared.save()
     }
 }
 

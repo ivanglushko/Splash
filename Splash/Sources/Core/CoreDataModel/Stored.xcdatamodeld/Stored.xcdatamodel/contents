@@ -4,21 +4,20 @@
         <attribute name="descriptionString" attributeType="String" syncable="YES"/>
         <attribute name="expanded" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id" attributeType="String" syncable="YES"/>
-        <attribute name="imgUrl" attributeType="String" syncable="YES"/>
         <attribute name="isFavourite" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="pubDateString" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
-        <relationship name="url" maxCount="1" deletionRule="Nullify" destinationEntity="Channel" inverseName="article" inverseEntity="Channel" syncable="YES"/>
+        <relationship name="channel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Channel" inverseName="article" inverseEntity="Channel" syncable="YES"/>
     </entity>
     <entity name="Channel" representedClassName=".Channel" syncable="YES">
         <attribute name="id" attributeType="String" syncable="YES"/>
         <attribute name="isCurrent" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" attributeType="String" syncable="YES"/>
-        <relationship name="article" toMany="YES" deletionRule="Nullify" destinationEntity="Article" inverseName="url" inverseEntity="Article" syncable="YES"/>
+        <relationship name="article" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Article" inverseName="channel" inverseEntity="Article" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Article" positionX="-63" positionY="-18" width="128" height="165"/>
+        <element name="Article" positionX="-63" positionY="-18" width="128" height="148"/>
         <element name="Channel" positionX="144" positionY="-0" width="128" height="120"/>
     </elements>
 </model>

@@ -2,7 +2,7 @@
 //  Channel+CoreDataProperties.swift
 //  Splash
 //
-//  Created by Ivan Glushko on 17.05.18.
+//  Created by Ivan Glushko on 20.05.18.
 //  Copyright © 2018 ivanglushko. All rights reserved.
 //
 //
@@ -18,9 +18,9 @@ extension Channel {
     }
 
     @NSManaged public var id: String
+    @NSManaged public var isCurrent: Bool
     @NSManaged public var name: String?
     @NSManaged public var url: String
-    @NSManaged public var isCurrent: Bool
     @NSManaged public var article: NSSet?
 
 }

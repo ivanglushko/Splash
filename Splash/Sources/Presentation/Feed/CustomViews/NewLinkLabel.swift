@@ -14,9 +14,12 @@ class NewLinkLabel: UILabel {
     private let yPoint = (UIScreen.main.bounds.height / 4)
     
     init() {
-        super.init(frame: CGRect(x: xPoint, y: yPoint, width: 200.0, height: 50.0))
+        super.init(frame: CGRect(x: xPoint, y: yPoint, width: 300.0, height: 200.0))
         text = "Add new link!"
         font = UIFont(name: "Avenir Next", size: 25)
+        numberOfLines = 0
+        textAlignment = .center
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

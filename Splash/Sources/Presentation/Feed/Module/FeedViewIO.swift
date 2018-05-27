@@ -12,6 +12,8 @@ protocol FeedViewInput: class {
     func setupInitialState()
     func reloadData()
     func showHints()
+    func showParsingError()
+    func showLoading()
     func hideHints()
 }
 

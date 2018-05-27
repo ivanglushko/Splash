@@ -12,6 +12,5 @@ struct ArticleItem {
     var title = ""
     var description = ""
     var pubDateString = ""
-    var imgUrl = ""
     var expanded = false
 }

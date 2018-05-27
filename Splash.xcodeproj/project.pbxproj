@@ -81,15 +81,16 @@
 		FA2E0BB6209FD03400E0DEE7 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E0B81209FD03400E0DEE7 /* Label.swift */; };
 		FA2E0BB7209FD03400E0DEE7 /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E0B82209FD03400E0DEE7 /* SegmentedControl.swift */; };
 		FA2E0BB8209FD03400E0DEE7 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E0B83209FD03400E0DEE7 /* TextField.swift */; };
-		FA51E7E220ADA65000C68A93 /* Channel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51E7DE20ADA65000C68A93 /* Channel+CoreDataClass.swift */; };
-		FA51E7E320ADA65000C68A93 /* Channel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51E7DF20ADA65000C68A93 /* Channel+CoreDataProperties.swift */; };
-		FA51E7E420ADA65000C68A93 /* Article+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51E7E020ADA65000C68A93 /* Article+CoreDataClass.swift */; };
-		FA51E7E520ADA65000C68A93 /* Article+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51E7E120ADA65000C68A93 /* Article+CoreDataProperties.swift */; };
+		FA60946B20B1D7ED00299347 /* Channel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA60946720B1D7ED00299347 /* Channel+CoreDataClass.swift */; };
+		FA60946C20B1D7ED00299347 /* Channel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA60946820B1D7ED00299347 /* Channel+CoreDataProperties.swift */; };
+		FA60946D20B1D7ED00299347 /* Article+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA60946920B1D7ED00299347 /* Article+CoreDataClass.swift */; };
+		FA60946E20B1D7ED00299347 /* Article+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA60946A20B1D7ED00299347 /* Article+CoreDataProperties.swift */; };
 		FA6A1A5420A1DA2D005BECBE /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6A1A5320A1DA2D005BECBE /* CoreDataHelper.swift */; };
 		FA6A1A5720A26593005BECBE /* NewLinkLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6A1A5620A26593005BECBE /* NewLinkLabel.swift */; };
 		FA7281C820A3BCE400C35DB5 /* ArrowHintImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7281C720A3BCE400C35DB5 /* ArrowHintImageView.swift */; };
 		FA8FBA4A20713C420029E430 /* ArticleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8FBA4920713C420029E430 /* ArticleItem.swift */; };
 		FA8FBA4C207147A10029E430 /* URLValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8FBA4B207147A10029E430 /* URLValidator.swift */; };
+		FAD169D820B764890017A58C /* Alerts+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD169D720B764890017A58C /* Alerts+Extension.swift */; };
 		FADFC2E3206C5AFC000BECFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFC2E2206C5AFC000BECFD /* AppDelegate.swift */; };
 		FADFC2EA206C5AFC000BECFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADFC2E9206C5AFC000BECFD /* Assets.xcassets */; };
 		FADFC2ED206C5AFC000BECFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADFC2EB206C5AFC000BECFD /* LaunchScreen.storyboard */; };
@@ -173,15 +174,16 @@
 		FA2E0B81209FD03400E0DEE7 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		FA2E0B82209FD03400E0DEE7 /* SegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		FA2E0B83209FD03400E0DEE7 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
-		FA51E7DE20ADA65000C68A93 /* Channel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Channel+CoreDataClass.swift"; sourceTree = "<group>"; };
-		FA51E7DF20ADA65000C68A93 /* Channel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Channel+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		FA51E7E020ADA65000C68A93 /* Article+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataClass.swift"; sourceTree = "<group>"; };
-		FA51E7E120ADA65000C68A93 /* Article+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FA60946720B1D7ED00299347 /* Channel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Channel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FA60946820B1D7ED00299347 /* Channel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Channel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FA60946920B1D7ED00299347 /* Article+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FA60946A20B1D7ED00299347 /* Article+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FA6A1A5320A1DA2D005BECBE /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		FA6A1A5620A26593005BECBE /* NewLinkLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLinkLabel.swift; sourceTree = "<group>"; };
 		FA7281C720A3BCE400C35DB5 /* ArrowHintImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowHintImageView.swift; sourceTree = "<group>"; };
 		FA8FBA4920713C420029E430 /* ArticleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleItem.swift; sourceTree = "<group>"; };
 		FA8FBA4B207147A10029E430 /* URLValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLValidator.swift; sourceTree = "<group>"; };
+		FAD169D720B764890017A58C /* Alerts+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alerts+Extension.swift"; sourceTree = "<group>"; };
 		FADFC2DF206C5AFC000BECFD /* Splash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Splash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FADFC2E2206C5AFC000BECFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FADFC2E9206C5AFC000BECFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -232,10 +234,10 @@
 		FA1B799720A10E130017F20A /* CoreDataModel */ = {
 			isa = PBXGroup;
 			children = (
-				FA51E7DE20ADA65000C68A93 /* Channel+CoreDataClass.swift */,
-				FA51E7DF20ADA65000C68A93 /* Channel+CoreDataProperties.swift */,
-				FA51E7E020ADA65000C68A93 /* Article+CoreDataClass.swift */,
-				FA51E7E120ADA65000C68A93 /* Article+CoreDataProperties.swift */,
+				FA60946720B1D7ED00299347 /* Channel+CoreDataClass.swift */,
+				FA60946820B1D7ED00299347 /* Channel+CoreDataProperties.swift */,
+				FA60946920B1D7ED00299347 /* Article+CoreDataClass.swift */,
+				FA60946A20B1D7ED00299347 /* Article+CoreDataProperties.swift */,
 				FA6A1A5320A1DA2D005BECBE /* CoreDataHelper.swift */,
 				FA1B799820A10E370017F20A /* Stored.xcdatamodeld */,
 			);
@@ -290,6 +292,7 @@
 				FA2D6F5B20764FD2002E3414 /* SettingsViewIO.swift */,
 				FA2D6F5D2076577E002E3414 /* SettingsPresenter.swift */,
 				2C8BB466207424A800711675 /* SettingsTableViewController.swift */,
+				FAD169D720B764890017A58C /* Alerts+Extension.swift */,
 				FA2D6F4F20763CBE002E3414 /* SettingsViewController.storyboard */,
 			);
 			path = Settings;
@@ -789,6 +792,7 @@
 				FA2E0B91209FD03400E0DEE7 /* UITextField+Extensions.swift in Sources */,
 				FA2E0BA1209FD03400E0DEE7 /* CountryCell.swift in Sources */,
 				FA071B9F206EDA8E00359F13 /* InitialPresenter.swift in Sources */,
+				FAD169D820B764890017A58C /* Alerts+Extension.swift in Sources */,
 				FA2E0BB0209FD03400E0DEE7 /* OneTextFieldViewController.swift in Sources */,
 				FA2E0BA7209FD03400E0DEE7 /* Address.swift in Sources */,
 				FA2E0BAF209FD03400E0DEE7 /* LikeButtonCell.swift in Sources */,
@@ -814,10 +818,10 @@
 				FA2E0B84209FD03400E0DEE7 /* Array+Extensions.swift in Sources */,
 				FA2E0B8A209FD03400E0DEE7 /* UIAlertController+Extensions.swift in Sources */,
 				FA2E0B97209FD03400E0DEE7 /* Contacts.swift in Sources */,
-				FA51E7E520ADA65000C68A93 /* Article+CoreDataProperties.swift in Sources */,
+				FA60946E20B1D7ED00299347 /* Article+CoreDataProperties.swift in Sources */,
 				FA2E0B9A209FD03400E0DEE7 /* DatePickerViewController.swift in Sources */,
 				FA2E0BA2209FD03400E0DEE7 /* CurrencyCell.swift in Sources */,
-				FA51E7E320ADA65000C68A93 /* Channel+CoreDataProperties.swift in Sources */,
+				FA60946C20B1D7ED00299347 /* Channel+CoreDataProperties.swift in Sources */,
 				FA2E0BA4209FD03400E0DEE7 /* LocationPickerViewController.swift in Sources */,
 				FA2E0BAC209FD03400E0DEE7 /* PhotoLayout.swift in Sources */,
 				FA2E0BA8209FD03400E0DEE7 /* Location.swift in Sources */,
@@ -832,7 +836,7 @@
 				FA2E0BAD209FD03400E0DEE7 /* TelegramPickerViewController.swift in Sources */,
 				FA2D6F5C20764FD2002E3414 /* SettingsViewIO.swift in Sources */,
 				FA2D6F44207636F5002E3414 /* InitialViewIO.swift in Sources */,
-				FA51E7E420ADA65000C68A93 /* Article+CoreDataClass.swift in Sources */,
+				FA60946D20B1D7ED00299347 /* Article+CoreDataClass.swift in Sources */,
 				FA2E0B8F209FD03400E0DEE7 /* UISearchBar+Extensions.swift in Sources */,
 				FA2E0BB8209FD03400E0DEE7 /* TextField.swift in Sources */,
 				FA7281C820A3BCE400C35DB5 /* ArrowHintImageView.swift in Sources */,
@@ -840,7 +844,7 @@
 				FA2E0B9E209FD03400E0DEE7 /* LocalePickerViewController.swift in Sources */,
 				FA2E0B93209FD03400E0DEE7 /* UIView+Extensions.swift in Sources */,
 				FA2E0B95209FD03400E0DEE7 /* ColorPickerViewController.swift in Sources */,
-				FA51E7E220ADA65000C68A93 /* Channel+CoreDataClass.swift in Sources */,
+				FA60946B20B1D7ED00299347 /* Channel+CoreDataClass.swift in Sources */,
 				FA2E0BB7209FD03400E0DEE7 /* SegmentedControl.swift in Sources */,
 				FA2E0B9F209FD03400E0DEE7 /* LocaleStore.swift in Sources */,
 				FA2E0B9B209FD03400E0DEE7 /* ImagePickerViewController.swift in Sources */,

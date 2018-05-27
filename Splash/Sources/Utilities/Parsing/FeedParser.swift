@@ -13,8 +13,7 @@ enum RssTag: String {
     case title = "title"
     case description = "description"
     case pubDate = "pubDate"
-    case imgUrl = "url"
-    case image = "media:thumbnail"
+    case channel
 }
 
 
@@ -27,8 +26,8 @@ class FeedParser: NSObject {
     fileprivate var currentTitle = ""
     fileprivate var currentDescription = ""
     fileprivate var currentPubDate = ""
-    fileprivate var currentImgUrl = ""
-    
+    fileprivate var channelTitle = ""
+    fileprivate var isChannelTitle = false
     
     
     func parseFeed(feedUrl: URL, completionHandler: (([ArticleItem]) -> Void)?) {
@@ -62,21 +61,26 @@ extension FeedParser: XMLParserDelegate {
             currentDescription = ""
             currentPubDate = ""
         }
-        if currentElement == RssTag.imgUrl.rawValue {
-            currentImgUrl = ""
+        
+        if currentElement == RssTag.channel.rawValue {
+            channelTitle = ""
+            isChannelTitle = true
         }
     }
     
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         switch currentElement {
         case RssTag.title.rawValue:
-            currentTitle += string
+            if isChannelTitle {
+                channelTitle += string
+                isChannelTitle = false
+            } else {
+                currentTitle += string
+            }
         case RssTag.description.rawValue:
             currentDescription += string
         case RssTag.pubDate.rawValue:
             currentPubDate += string
-        case RssTag.imgUrl.rawValue:
-            currentImgUrl += string
         default:
             break
         }
@@ -87,10 +91,12 @@ extension FeedParser: XMLParserDelegate {
             let title = trimmed(string: currentTitle)
             let description = trimmed(string: currentDescription)
             let pubDateString = trimmed(string: currentPubDate)
-            let imgUrl = trimmed(string: currentImgUrl)
-            print(imgUrl)
             
-            items += [ArticleItem(title: title, description: description, pubDateString: pubDateString,imgUrl: imgUrl, expanded: false)]
+            items += [ArticleItem(title: title, description: description, pubDateString: pubDateString, expanded: false)]
+        }
+        if elementName == RssTag.channel.rawValue  {
+            self.channelTitle = trimmed(string: channelTitle)
+            print("We have a name \(channelTitle)")
         }
     }
     
@@ -114,5 +120,9 @@ fileprivate extension FeedParser {
 extension FeedParser {
     func returnItems() -> [ArticleItem] {
         return items
+    }
+    
+    func returnChannelName() -> String {
+        return channelTitle
     }
 }

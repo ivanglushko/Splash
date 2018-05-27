@@ -81,22 +81,32 @@ extension FeedTableViewController: FeedViewInput {
         tableView.estimatedRowHeight = 155.0
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.addSubview(newLinkLabel)
+        newLinkLabel.center = tableView.center
         tableView.addSubview(arrowHintImageView)
         arrowHintImageView.center.y -= 100
         arrowHintImageView.alpha = 0
     }
     
     func reloadData() {
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
     
     func showHints() {
-        self.newLinkLabel.isHidden = false
-        self.arrowHintImageView.isHidden = false
+        newLinkLabel.isHidden = false
+        arrowHintImageView.isHidden = false
+    }
+    
+    func showParsingError() {
+        arrowHintImageView.isHidden = true
+        newLinkLabel.text = "Error due parsing."
+    }
+    func showLoading() {
+        arrowHintImageView.isHidden = true
+        newLinkLabel.text = "Loading articles..."
     }
     
     func hideHints() {
-        self.newLinkLabel.isHidden = true
-        self.arrowHintImageView.isHidden = true
+        newLinkLabel.isHidden = true
+        arrowHintImageView.isHidden = true
     }
 }

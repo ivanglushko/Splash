@@ -13,8 +13,10 @@ protocol SettingsViewInput: class {
 }
 
 protocol SettingsViewOutput: class {
+    func createChannel(url: String)
+    func deleteAllChannels()
     func numberOfRows() -> Int
     func url(for indexPath: IndexPath) -> String?
-    func tapLink(with indexPath: Int)
+    func tapLink(with index: Int)
     func triggerViewReadyEvent()
 }

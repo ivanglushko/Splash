@@ -14,6 +14,13 @@ class FeedPresenter {
     private let feedParser = FeedParser()
     private var items: [ArticleItem] = []
     private var storedItems: [Article] = []
+    private var channel: Channel? = {
+        let predicate = CoreDataHelper.shared.isCurrentPredicate
+        let channelArray =  CoreDataHelper.shared.fetch(entity: "Channel", predicate: predicate) as! [Channel]
+        guard let channel = channelArray.first else { return nil }
+        print(channel.url)
+        return channel
+    }()
 }
 
 extension FeedPresenter: FeedViewOutput {
@@ -24,7 +31,11 @@ extension FeedPresenter: FeedViewOutput {
     }
     
     func triggerViewWillAppearEvent() {
-        reloadNewLinkLabel()
+        if let _ = channel {
+            view?.showLoading()
+        } else {
+            view?.showHints()
+        }
     }
     
     // MARK: User actions
@@ -55,51 +66,60 @@ extension FeedPresenter: FeedViewOutput {
 // MARK: - Private helpers
 private extension FeedPresenter {
     func startParsingURLs() {
-        guard let urlsStrings = UserDefaults.standard.value(forKey: "urls") as? [String] else { return }
-        
-        if let urlString = urlsStrings.first, let url = URL(string: urlString) {
+        if let urlString = channel?.url , let url = URL(string: urlString) {
             DispatchQueue.main.async { self.parseURL(url: url) }
         }
     }
     
     func parseURL(url: URL) {
         feedParser.parseFeed(feedUrl: url) { (items) in
+            print(items.count)
             self.didParseURL(with: items)
-        }
+            }
+
     }
     
     func didParseURL(with items: [ArticleItem]) {
         self.items = items
+        channel?.name = feedParser.returnChannelName()
+        print(channel?.name ?? "no name")
         fillStoredItems()
         self.reloadNewLinkLabel()
     }
     
     func reloadNewLinkLabel() {
-        if items.isEmpty {
-            DispatchQueue.main.async {
-                self.view?.showHints()
-            }
-        } else {
-            DispatchQueue.main.async {
-                self.view?.hideHints()
-                self.view?.reloadData()
+            if items.isEmpty {
+                DispatchQueue.main.async {
+                    self.view?.showParsingError()
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.view?.hideHints()
+                    self.view?.reloadData()
+                }
             }
         }
-    }
     
     func fillStoredItems() {
         for item in items {
-            let article = Article(entity: CoreDataHelper.articleEntity!, insertInto: CoreDataHelper.context)
+            let article = Article(context: CoreDataHelper.shared.context)
             article.title = item.title
             article.descriptionString = item.description
             article.pubDateString = item.pubDateString
-            article.imgUrl = item.imgUrl
             article.expanded = item.expanded
             article.isFavourite = false
             article.id = NSUUID().uuidString
-            CoreDataHelper.save()
-
+            article.channel = channel
         }
-        storedItems = CoreDataHelper.fetch(entity: "Article") as! [Article]
+        CoreDataHelper.shared.save()
+        storedItems = CoreDataHelper.shared.fetch(entity: "Article") as! [Article]
+        deleteAllArticles()
+        print("Stored items after filling",storedItems.count)
+    }
+    
+    func deleteAllArticles() {
+        CoreDataHelper.shared.deleteAll(fetchRequest: Article.fetchRequest())
+        storedItems = CoreDataHelper.shared.fetch(entity: "Article") as! [Article]
+        print("Stored items after delete",storedItems.count)
     }
 }
