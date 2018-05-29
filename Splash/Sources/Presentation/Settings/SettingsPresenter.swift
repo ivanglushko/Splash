@@ -13,23 +13,13 @@ class SettingsPresenter {
     weak var view: SettingsViewInput?
     
     private var urls = CoreDataHelper.shared.fetch(entity: "Channel") as? [Channel]
-    private var filteredUrls: [Channel]?
     
-    init() {
-        filteredUrls = urls?.filter { return $0.isCurrent }
-        urls?.forEach({ (channel) in
-            if channel.isCurrent == false {
-                filteredUrls?.append(channel)
-            }
-        })
-        self.urls = filteredUrls
-    }
 }
 
 extension SettingsPresenter: SettingsViewOutput {
     // MARK: UITableViewDataSource
     func numberOfRows() -> Int {
-            return urls?.count ?? 0
+        return urls?.count ?? 0
     }
     
     func url(for indexPath: IndexPath) -> String? {
@@ -40,35 +30,35 @@ extension SettingsPresenter: SettingsViewOutput {
     func tapLink(with index: Int) {
         
         // make it current
-        CoreDataHelper.shared.persistentContainer.performBackgroundTask { context in
-            self.urls?.forEach{ $0.isCurrent = false }
-            self.urls?[index].isCurrent = true
-            try? context.save()
-            self.view?.reloadData()
-        }
         
+        self.urls?.forEach{ $0.isCurrent = false }
+        self.urls?[index].isCurrent = true
+        CoreDataHelper.shared.save()
+        self.view?.reloadData()
         
         
     }
     
     // MARK: CoreData Methods
     func createChannel(url: String) {
-        CoreDataHelper.shared.persistentContainer.performBackgroundTask { (context) in
-            self.urls?.forEach { $0.isCurrent = false}
-            let channel = Channel(context: CoreDataHelper.shared.context)
-            channel.id = UUID().uuidString
-            channel.url = url
-            channel.isCurrent = true
-            try? context.save()
-            print("Channel has been created")
-        }
+        self.urls?.forEach { $0.isCurrent = false}
+        let channel = Channel(context: CoreDataHelper.shared.context)
+        channel.id = UUID().uuidString
+        channel.url = url
+        channel.isCurrent = true
+        CoreDataHelper.shared.save()
+        print("Channel has been created")
+        
         
     }
     
-    func deleteAllChannels() {
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: Channel.fetchRequest())
+    func deleteChannelsArticles() {
+        let deleteChannelsRequest = NSBatchDeleteRequest(fetchRequest: Channel.fetchRequest())
+        let deleteArticlesRequest = NSBatchDeleteRequest(fetchRequest: Article.fetchRequest())
         do {
-            try CoreDataHelper.shared.context.execute(deleteRequest)
+            try CoreDataHelper.shared.context.execute(deleteChannelsRequest)
+            try CoreDataHelper.shared.context.execute(deleteArticlesRequest)
+            CoreDataHelper.shared.context.reset()
             view?.reloadData()
         } catch let err {
             print ("Error due deletion of channels: \(err)")
@@ -78,6 +68,6 @@ extension SettingsPresenter: SettingsViewOutput {
     func triggerViewReadyEvent() {
         
     }
-
-  
+    
+    
 }

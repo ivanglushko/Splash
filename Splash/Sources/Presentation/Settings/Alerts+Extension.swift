@@ -54,7 +54,7 @@ extension SettingsTableViewController {
         let alert = UIAlertController(title: "Attention!", message: nil, preferredStyle: .actionSheet)
         alert.set(message: "Do you want to delete all the links?", font: .systemFont(ofSize: 15), color: .red)
         alert.addAction(title: "OK", style: .default, isEnabled: true) { [weak self] action in
-            self?.output.deleteAllChannels()
+            self?.output.deleteChannelsArticles()
         }
         alert.addAction(title: "Cancel", style: .default)
         show(alert, sender: self)

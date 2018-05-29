@@ -21,6 +21,7 @@ class FeedParser: NSObject {
     fileprivate var parser = XMLParser()
     fileprivate var items = [ArticleItem]()
     fileprivate var completionHandler: (([ArticleItem]) -> Void)?
+    fileprivate var parserError: Error?
     
     fileprivate var currentElement = ""
     fileprivate var currentTitle = ""
@@ -30,19 +31,22 @@ class FeedParser: NSObject {
     fileprivate var isChannelTitle = false
     
     
-    func parseFeed(feedUrl: URL, completionHandler: (([ArticleItem]) -> Void)?) {
+    func parseFeed(feedUrl: URL,errorHandler: @escaping ((Error?) -> Void), completionHandler: (([ArticleItem]) -> Void)?) {
         self.completionHandler = completionHandler
         
+
         let request = URLRequest(url: feedUrl)
         let task = URLSession.shared.dataTask(with: request) {  (data, response, error) in
             guard let data = data
                 else {
                     debugPrint(error ?? "Error is nil")
-                    return
+                    errorHandler(error)
+                    return 
             }
             self.parser = XMLParser(data: data)
             self.parser.delegate = self
             self.parser.parse()
+            errorHandler(self.parserError)
         }
         task.resume()
     }
@@ -96,7 +100,7 @@ extension FeedParser: XMLParserDelegate {
         }
         if elementName == RssTag.channel.rawValue  {
             self.channelTitle = trimmed(string: channelTitle)
-            print("We have a name \(channelTitle)")
+            print("We have a name: \(channelTitle)")
         }
     }
     
@@ -106,6 +110,7 @@ extension FeedParser: XMLParserDelegate {
     }
     
     func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
+        self.parserError = parseError
         debugPrint(parseError.localizedDescription)
     }
 }

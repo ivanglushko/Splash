@@ -41,6 +41,7 @@ extension SettingsTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         output.tapLink(with: indexPath.row)
     }
+
 }
 
 extension SettingsTableViewController {

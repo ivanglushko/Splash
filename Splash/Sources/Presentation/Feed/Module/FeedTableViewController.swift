@@ -98,6 +98,7 @@ extension FeedTableViewController: FeedViewInput {
     
     func showParsingError() {
         arrowHintImageView.isHidden = true
+        newLinkLabel.isHidden = false
         newLinkLabel.text = "Error due parsing."
     }
     func showLoading() {
