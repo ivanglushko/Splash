@@ -9,9 +9,11 @@
 import Foundation
 
 protocol BlogViewInput: class {
-    
+    func reloadData()
 }
 
 protocol BlogViewOutput: class {
-    
+    func fetchBlogs()
+    func returnNumberOfRows() -> Int
+    func configureCell(cell: BlogCell, indexPath: IndexPath) -> BlogCell
 }

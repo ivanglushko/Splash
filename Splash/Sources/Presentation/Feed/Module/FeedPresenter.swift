@@ -37,6 +37,8 @@ extension FeedPresenter: FeedViewOutput {
             view?.showLoading()
             startParsingURLs()
         } else {
+            items = []
+            view?.reloadData()
             view?.showHints()
         }
     }

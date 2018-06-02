@@ -18,5 +18,6 @@ protocol SettingsViewOutput: class {
     func numberOfRows() -> Int
     func url(for indexPath: IndexPath) -> String?
     func tapLink(with index: Int)
+    func checkIfUrlExists(url: String) -> Bool
     func triggerViewReadyEvent()
 }

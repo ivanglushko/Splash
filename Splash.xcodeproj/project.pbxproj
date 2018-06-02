@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C2E962220C048DE00D0BEC2 /* Blog+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2E962020C048DE00D0BEC2 /* Blog+CoreDataClass.swift */; };
+		2C2E962320C048DE00D0BEC2 /* Blog+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2E962120C048DE00D0BEC2 /* Blog+CoreDataProperties.swift */; };
+		2C2E962620C0500200D0BEC2 /* BlogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2E962520C0500200D0BEC2 /* BlogCell.swift */; };
 		2C72C5042073B88500C300B2 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C72C5032073B88500C300B2 /* TabBarViewController.swift */; };
 		2C8BB467207424A800711675 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8BB466207424A800711675 /* SettingsTableViewController.swift */; };
 		9F5339FB207C80940074AC50 /* FeedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F5339F5207C80940074AC50 /* FeedViewController.storyboard */; };
@@ -81,6 +84,7 @@
 		FA2E0BB6209FD03400E0DEE7 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E0B81209FD03400E0DEE7 /* Label.swift */; };
 		FA2E0BB7209FD03400E0DEE7 /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E0B82209FD03400E0DEE7 /* SegmentedControl.swift */; };
 		FA2E0BB8209FD03400E0DEE7 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2E0B83209FD03400E0DEE7 /* TextField.swift */; };
+		FA4E4A4320C16EAB00A103F5 /* BlogPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4E4A4220C16EAB00A103F5 /* BlogPresenter.swift */; };
 		FA60946B20B1D7ED00299347 /* Channel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA60946720B1D7ED00299347 /* Channel+CoreDataClass.swift */; };
 		FA60946C20B1D7ED00299347 /* Channel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA60946820B1D7ED00299347 /* Channel+CoreDataProperties.swift */; };
 		FA60946D20B1D7ED00299347 /* Article+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA60946920B1D7ED00299347 /* Article+CoreDataClass.swift */; };
@@ -96,10 +100,14 @@
 		FADFC2ED206C5AFC000BECFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADFC2EB206C5AFC000BECFD /* LaunchScreen.storyboard */; };
 		FADFC2FC206C6BD2000BECFD /* BlogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFC2FB206C6BD2000BECFD /* BlogTableViewController.swift */; };
 		FADFC2FE206C6C03000BECFD /* FeedParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADFC2FD206C6C03000BECFD /* FeedParser.swift */; };
+		FAE725E520C090B10004ED61 /* AddNotePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE725E420C090B10004ED61 /* AddNotePresenter.swift */; };
 		FAF09B64206C762800B74B73 /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF09B63206C762800B74B73 /* AddNoteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C2E962020C048DE00D0BEC2 /* Blog+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Blog+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2C2E962120C048DE00D0BEC2 /* Blog+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Blog+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2C2E962520C0500200D0BEC2 /* BlogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogCell.swift; sourceTree = "<group>"; };
 		2C72C5032073B88500C300B2 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		2C8BB466207424A800711675 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		9F5339F5207C80940074AC50 /* FeedViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeedViewController.storyboard; sourceTree = "<group>"; };
@@ -174,6 +182,7 @@
 		FA2E0B81209FD03400E0DEE7 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
 		FA2E0B82209FD03400E0DEE7 /* SegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		FA2E0B83209FD03400E0DEE7 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		FA4E4A4220C16EAB00A103F5 /* BlogPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogPresenter.swift; sourceTree = "<group>"; };
 		FA60946720B1D7ED00299347 /* Channel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Channel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FA60946820B1D7ED00299347 /* Channel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Channel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FA60946920B1D7ED00299347 /* Article+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -191,6 +200,7 @@
 		FADFC2EE206C5AFC000BECFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FADFC2FB206C6BD2000BECFD /* BlogTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogTableViewController.swift; sourceTree = "<group>"; };
 		FADFC2FD206C6C03000BECFD /* FeedParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedParser.swift; sourceTree = "<group>"; };
+		FAE725E420C090B10004ED61 /* AddNotePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNotePresenter.swift; sourceTree = "<group>"; };
 		FAF09B63206C762800B74B73 /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -205,6 +215,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C2E961F20C0488200D0BEC2 /* NSManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				FA60946920B1D7ED00299347 /* Article+CoreDataClass.swift */,
+				FA60946A20B1D7ED00299347 /* Article+CoreDataProperties.swift */,
+				2C2E962020C048DE00D0BEC2 /* Blog+CoreDataClass.swift */,
+				2C2E962120C048DE00D0BEC2 /* Blog+CoreDataProperties.swift */,
+				FA60946720B1D7ED00299347 /* Channel+CoreDataClass.swift */,
+				FA60946820B1D7ED00299347 /* Channel+CoreDataProperties.swift */,
+			);
+			path = NSManagedObjects;
+			sourceTree = "<group>";
+		};
+		2C2E962420C04FD700D0BEC2 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2C2E962520C0500200D0BEC2 /* BlogCell.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		9F5339F4207C80940074AC50 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,10 +265,7 @@
 		FA1B799720A10E130017F20A /* CoreDataModel */ = {
 			isa = PBXGroup;
 			children = (
-				FA60946720B1D7ED00299347 /* Channel+CoreDataClass.swift */,
-				FA60946820B1D7ED00299347 /* Channel+CoreDataProperties.swift */,
-				FA60946920B1D7ED00299347 /* Article+CoreDataClass.swift */,
-				FA60946A20B1D7ED00299347 /* Article+CoreDataProperties.swift */,
+				2C2E961F20C0488200D0BEC2 /* NSManagedObjects */,
 				FA6A1A5320A1DA2D005BECBE /* CoreDataHelper.swift */,
 				FA1B799820A10E370017F20A /* Stored.xcdatamodeld */,
 			);
@@ -279,7 +307,9 @@
 		FA2D6F3B2076357F002E3414 /* Blog */ = {
 			isa = PBXGroup;
 			children = (
+				2C2E962420C04FD700D0BEC2 /* Common */,
 				FA2D6F5720764FA7002E3414 /* BlogViewIO.swift */,
+				FA4E4A4220C16EAB00A103F5 /* BlogPresenter.swift */,
 				FADFC2FB206C6BD2000BECFD /* BlogTableViewController.swift */,
 				FA2D6F4B20763C4B002E3414 /* BlogViewController.storyboard */,
 			);
@@ -302,6 +332,7 @@
 			isa = PBXGroup;
 			children = (
 				FA2D6F5920764FC4002E3414 /* AddNoteViewIO.swift */,
+				FAE725E420C090B10004ED61 /* AddNotePresenter.swift */,
 				FAF09B63206C762800B74B73 /* AddNoteViewController.swift */,
 				FA2D6F4D20763C8B002E3414 /* AddNoteViewController.storyboard */,
 			);
@@ -836,15 +867,19 @@
 				FA2E0BAD209FD03400E0DEE7 /* TelegramPickerViewController.swift in Sources */,
 				FA2D6F5C20764FD2002E3414 /* SettingsViewIO.swift in Sources */,
 				FA2D6F44207636F5002E3414 /* InitialViewIO.swift in Sources */,
+				FAE725E520C090B10004ED61 /* AddNotePresenter.swift in Sources */,
+				2C2E962220C048DE00D0BEC2 /* Blog+CoreDataClass.swift in Sources */,
 				FA60946D20B1D7ED00299347 /* Article+CoreDataClass.swift in Sources */,
 				FA2E0B8F209FD03400E0DEE7 /* UISearchBar+Extensions.swift in Sources */,
 				FA2E0BB8209FD03400E0DEE7 /* TextField.swift in Sources */,
+				FA4E4A4320C16EAB00A103F5 /* BlogPresenter.swift in Sources */,
 				FA7281C820A3BCE400C35DB5 /* ArrowHintImageView.swift in Sources */,
 				FA2E0BB1209FD03400E0DEE7 /* TwoTextFieldsViewController.swift in Sources */,
 				FA2E0B9E209FD03400E0DEE7 /* LocalePickerViewController.swift in Sources */,
 				FA2E0B93209FD03400E0DEE7 /* UIView+Extensions.swift in Sources */,
 				FA2E0B95209FD03400E0DEE7 /* ColorPickerViewController.swift in Sources */,
 				FA60946B20B1D7ED00299347 /* Channel+CoreDataClass.swift in Sources */,
+				2C2E962620C0500200D0BEC2 /* BlogCell.swift in Sources */,
 				FA2E0BB7209FD03400E0DEE7 /* SegmentedControl.swift in Sources */,
 				FA2E0B9F209FD03400E0DEE7 /* LocaleStore.swift in Sources */,
 				FA2E0B9B209FD03400E0DEE7 /* ImagePickerViewController.swift in Sources */,
@@ -856,6 +891,7 @@
 				FA2E0B90209FD03400E0DEE7 /* UISegmentedControl+Extensions.swift in Sources */,
 				FA2E0BB2209FD03400E0DEE7 /* AttributedTextBlock.swift in Sources */,
 				FA2E0BA5209FD03400E0DEE7 /* LocationSearchResultsViewController.swift in Sources */,
+				2C2E962320C048DE00D0BEC2 /* Blog+CoreDataProperties.swift in Sources */,
 				FA6A1A5420A1DA2D005BECBE /* CoreDataHelper.swift in Sources */,
 				FA2E0B9C209FD03400E0DEE7 /* ItemWithImage.swift in Sources */,
 				FA2E0BAB209FD03400E0DEE7 /* PickerViewViewController.swift in Sources */,

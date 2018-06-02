@@ -16,7 +16,7 @@ class FeedTableViewController: UITableViewController {
     // MARK: - Entities
     private let kArticleCellReuseId = "ArticleCell"
     
-    let presenter = FeedPresenter()
+    private let presenter = FeedPresenter()
     private var output: FeedViewOutput!
     
     // MARK: - Lifecycle
@@ -92,6 +92,7 @@ extension FeedTableViewController: FeedViewInput {
     }
     
     func showHints() {
+        newLinkLabel.text = NewLinkLabel().text
         newLinkLabel.isHidden = false
         arrowHintImageView.isHidden = false
     }

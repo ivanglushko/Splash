@@ -7,6 +7,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Bold</string>
+            <string>AvenirNext-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Blog-->
         <scene sceneID="cS3-PC-Jsq">
@@ -33,13 +39,42 @@
                             </items>
                         </navigationBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BlogCell" id="SkF-hq-Rs4">
-                                <rect key="frame" x="0.0" y="124" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BlogCell" rowHeight="120" id="SkF-hq-Rs4" customClass="BlogCell" customModule="Splash" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="124" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SkF-hq-Rs4" id="HbM-Um-Z0X">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="hXE-bw-3Vn">
+                                            <rect key="frame" x="8" y="16" width="359" height="87.5"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="okF-Pj-B4F" userLabel="Title">
+                                                    <rect key="frame" x="0.0" y="0.0" width="359" height="44"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Fill" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7x-dW-jKM" userLabel="Fill">
+                                                    <rect key="frame" x="0.0" y="44" width="359" height="43.5"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="hXE-bw-3Vn" secondAttribute="bottom" constant="16" id="QWP-HD-akp"/>
+                                        <constraint firstItem="hXE-bw-3Vn" firstAttribute="top" secondItem="HbM-Um-Z0X" secondAttribute="top" constant="16" id="XPh-PI-amI"/>
+                                        <constraint firstItem="hXE-bw-3Vn" firstAttribute="leading" secondItem="HbM-Um-Z0X" secondAttribute="leading" constant="8" id="fhk-M9-F5J"/>
+                                        <constraint firstAttribute="trailing" secondItem="hXE-bw-3Vn" secondAttribute="trailing" constant="8" id="v8z-XP-NBr"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="fillLabel" destination="Z7x-dW-jKM" id="PAV-1w-vkp"/>
+                                    <outlet property="titleLabel" destination="okF-Pj-B4F" id="iK7-Cx-hSm"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -54,7 +89,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nUQ-Kn-kHM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="209" y="249"/>
+            <point key="canvasLocation" x="208.80000000000001" y="248.72563718140933"/>
         </scene>
         <!--AddNoteViewController-->
         <scene sceneID="dO8-yH-dtj">

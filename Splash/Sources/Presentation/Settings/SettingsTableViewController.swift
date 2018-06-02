@@ -9,16 +9,19 @@
 import UIKit
 
 class SettingsTableViewController: UITableViewController {
+    private let presenter = SettingsPresenter()
     var output: SettingsViewOutput {
         let presenter = SettingsPresenter()
         presenter.view = self
         return presenter
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
     }
+    
+    
     @IBAction private func addLink(_ sender: UIBarButtonItem) {
         buildAddAlert()
     }
@@ -31,6 +34,7 @@ class SettingsTableViewController: UITableViewController {
 // MARK: - TableViewDataSource
 extension SettingsTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(output.numberOfRows())
         return output.numberOfRows()
     }
     

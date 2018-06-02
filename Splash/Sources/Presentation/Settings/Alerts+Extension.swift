@@ -33,8 +33,10 @@ extension SettingsTableViewController {
         
         alert.addOneTextField(configuration: textField)
         alert.addAction(title: "OK", color: .gray, style: .default, isEnabled: true) { [weak self] action in
-            let validator = URLValidator()
             guard let text = text else { return }
+            guard let exists = self?.output.checkIfUrlExists(url: text) else { return }
+            guard !exists else { return }
+            let validator = URLValidator()
             if validator.isValid(text: text) {
                 self?.output.createChannel(url: text)
                 self?.reloadData()
