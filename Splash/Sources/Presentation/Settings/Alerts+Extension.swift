@@ -48,8 +48,7 @@ extension SettingsTableViewController {
             }
             
         }
-        show(alert, sender: self)
-        
+        present(alert,animated: true)
     }
     
     func buildDeleteAllUrlsAlert() {
@@ -59,6 +58,6 @@ extension SettingsTableViewController {
             self?.output.deleteChannelsArticles()
         }
         alert.addAction(title: "Cancel", style: .default)
-        show(alert, sender: self)
+        present(alert,animated: true)
     }
 }

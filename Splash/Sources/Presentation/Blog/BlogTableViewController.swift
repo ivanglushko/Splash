@@ -14,6 +14,7 @@ class BlogTableViewController: UITableViewController {
     var output: BlogViewOutput!
     
     override func viewDidLoad() {
+        tableView.backgroundColor = .paleGreen
         self.presenter.view = self
         self.output = presenter
     }

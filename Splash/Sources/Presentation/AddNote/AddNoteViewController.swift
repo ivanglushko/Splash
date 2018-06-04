@@ -22,6 +22,7 @@ class AddNoteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.isHidden = true
         setPlaceholder(textView: textTitle)
         setPlaceholder(textView: textFill)
     }
@@ -34,8 +35,8 @@ class AddNoteViewController: UIViewController {
         
         print("title: \(title)")
         print("fill: \(fill)")
-        dismiss(animated: true)
-        
+        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.popViewController(animated: false)
     }
 }
 

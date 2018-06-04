@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 class FeedTableViewController: UITableViewController {
     // MARK: - Outlets
@@ -22,6 +23,7 @@ class FeedTableViewController: UITableViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.backgroundColor = .paleGreen
         presenter.view = self
         output = presenter
         output.triggerViewReadyEvent()
@@ -30,6 +32,7 @@ class FeedTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         output.triggerViewWillAppearEvent()
+        self.navigationItem.title = output.setNavigationItemTitle()
         animateArrow(view: arrowHintImageView)
     }
 }
@@ -49,9 +52,9 @@ extension FeedTableViewController {
             debugPrint("\(#file): Can't dequeue reusable cell with identifier \(kArticleCellReuseId)")
             return UITableViewCell()
         }
-        
+        let numberOfItems = output.numberOfItems
         let item = output.item(for: indexPath)
-        cell.configure(with: item)
+        cell.configure(with: item, numberOfItems: numberOfItems, indexPath: indexPath)
         
         return cell
     }

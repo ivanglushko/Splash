@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ChameleonFramework
 
 class SettingsTableViewController: UITableViewController {
     private let presenter = SettingsPresenter()
@@ -14,6 +15,12 @@ class SettingsTableViewController: UITableViewController {
         let presenter = SettingsPresenter()
         presenter.view = self
         return presenter
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.backgroundColor = .paleGreen
+        tableView.rowHeight = 70.0
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,9 +59,10 @@ extension SettingsTableViewController {
     func setCells(indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         cell.textLabel?.text = output.url(for: indexPath)
+        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         
         if indexPath.row == 0 {
-            cell.backgroundColor = .green
+            cell.backgroundColor = FlatGreen()
         }
         return cell
     }

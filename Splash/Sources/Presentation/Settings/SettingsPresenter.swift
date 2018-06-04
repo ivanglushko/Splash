@@ -50,7 +50,7 @@ extension SettingsPresenter: SettingsViewOutput {
     func tapLink(with index: Int) {
         
         // make it current
-        
+        print("Index :",index)
         self.channels?.forEach{ $0.isCurrent = false }
         self.channels?[index].isCurrent = true
         CoreDataHelper.shared.save()

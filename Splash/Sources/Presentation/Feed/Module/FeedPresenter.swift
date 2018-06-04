@@ -18,6 +18,10 @@ class FeedPresenter {
 }
 
 extension FeedPresenter: FeedViewOutput {
+    var numberOfItems: Int { return items.count }
+    func setNavigationItemTitle() -> String {
+        return channel?.name ?? "Splash"
+    }
     // MARK: Lifecycle
     func triggerViewReadyEvent() {
         view?.setupInitialState()
@@ -70,6 +74,7 @@ extension FeedPresenter: FeedViewOutput {
 
 // MARK: - Private helpers
 private extension FeedPresenter {
+    
     func startParsingURLs() {
         if let urlString = channel?.url , let url = URL(string: urlString) {
             DispatchQueue.main.async { self.parseURL(url: url) }

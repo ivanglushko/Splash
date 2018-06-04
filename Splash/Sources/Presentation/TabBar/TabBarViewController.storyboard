@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -32,7 +31,7 @@
         <scene sceneID="WgQ-Oa-hJL">
             <objects>
                 <viewControllerPlaceholder storyboardName="FeedViewController" id="QeJ-Dd-sZe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="gec-g1-xfW"/>
+                    <tabBarItem key="tabBarItem" title="Feed" image="cloudIcon" id="gec-g1-xfW"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nEO-dp-JDE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -42,7 +41,7 @@
         <scene sceneID="cbw-8J-DkU">
             <objects>
                 <viewControllerPlaceholder storyboardName="BlogViewController" id="bkW-X3-LgT" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="5wn-I4-2RT"/>
+                    <tabBarItem key="tabBarItem" title="Blog" image="blogIcon" id="5wn-I4-2RT"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E2M-mm-ob5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -52,11 +51,16 @@
         <scene sceneID="8Vy-2O-f0b">
             <objects>
                 <viewControllerPlaceholder storyboardName="SettingsViewController" id="MUz-aQ-wgQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Mxo-bU-BVV"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settingsIcon" id="Mxo-bU-BVV"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rEO-iy-DnW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-12" y="117"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="blogIcon" width="25" height="25"/>
+        <image name="cloudIcon" width="25" height="25"/>
+        <image name="settingsIcon" width="25" height="25"/>
+    </resources>
 </document>

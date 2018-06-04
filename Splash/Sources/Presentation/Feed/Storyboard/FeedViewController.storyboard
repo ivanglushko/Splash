@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JOD-wZ-Sag">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HYa-Gv-RWU">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -14,7 +14,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Feed-->
+        <!--Splash-->
         <scene sceneID="NVg-KI-aLD">
             <objects>
                 <tableViewController id="JOD-wZ-Sag" customClass="FeedTableViewController" customModule="Splash" customModuleProvider="target" sceneMemberID="viewController">
@@ -79,11 +79,36 @@
                             <outlet property="delegate" destination="JOD-wZ-Sag" id="BIQ-7P-rsp"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Feed" image="cloudIcon" id="Aye-gr-fV6"/>
+                    <navigationItem key="navigationItem" title="Splash" id="6qF-6m-K4E"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dB0-F3-1Fc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1068" y="-170.46476761619192"/>
+            <point key="canvasLocation" x="1407.2" y="-170.46476761619192"/>
+        </scene>
+        <!--Feed-->
+        <scene sceneID="CGY-g1-roB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HYa-Gv-RWU" customClass="UINavigationControllerX" customModule="Splash" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Feed" image="cloudIcon" id="Aye-gr-fV6"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="PkN-gl-hZo">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="35"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="JOD-wZ-Sag" kind="relationship" relationship="rootViewController" id="y2z-6T-xnF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GG0-d2-Hbl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="708" y="-170"/>
         </scene>
     </scenes>
     <resources>

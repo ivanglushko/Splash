@@ -18,6 +18,9 @@ protocol FeedViewInput: class {
 }
 
 protocol FeedViewOutput: class {
+    var numberOfItems: Int {get}
+    func setNavigationItemTitle() -> String
+    
     // Lifecycle
     func triggerViewReadyEvent()
     func triggerViewWillAppearEvent()

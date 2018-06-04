@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13533" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Article" representedClassName=".Article" syncable="YES">
         <attribute name="descriptionString" attributeType="String" syncable="YES"/>
         <attribute name="expanded" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -11,6 +11,7 @@
     </entity>
     <entity name="Blog" representedClassName="Blog" syncable="YES">
         <attribute name="fill" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hexColor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Channel" representedClassName=".Channel" syncable="YES">
@@ -22,7 +23,7 @@
     </entity>
     <elements>
         <element name="Article" positionX="-63" positionY="-18" width="128" height="148"/>
+        <element name="Blog" positionX="45" positionY="45" width="128" height="90"/>
         <element name="Channel" positionX="144" positionY="-0" width="128" height="120"/>
-        <element name="Blog" positionX="45" positionY="45" width="128" height="75"/>
     </elements>
 </model>

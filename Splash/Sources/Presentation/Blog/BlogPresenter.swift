@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ChameleonFramework
 
 class BlogPresenter {
     weak var view: BlogViewInput?
@@ -28,6 +29,12 @@ extension BlogPresenter: BlogViewOutput {
         cell.fillLabel.text = blogs?[indexPath.row].fill
         cell.titleLabel.numberOfLines = 0
         cell.fillLabel.numberOfLines = cell.expanded ? 0 : 4
+        let hexColor = blogs?[indexPath.row].hexColor
+        let color = UIColor(hexString: hexColor ?? UIColor.oceanBlue.hexString)
+
+        cell.backgroundColor = color
+        cell.titleLabel.textColor = ContrastColorOf(color, returnFlat: true)
+        cell.fillLabel.textColor = ContrastColorOf(color, returnFlat: true)
         return cell
     }
 }
