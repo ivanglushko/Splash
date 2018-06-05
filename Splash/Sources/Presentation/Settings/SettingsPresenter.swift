@@ -51,7 +51,7 @@ extension SettingsPresenter: SettingsViewOutput {
         
         // make it current
         print("Index :",index)
-        self.channels?.forEach{ $0.isCurrent = false }
+        self.channels?.forEach { $0.isCurrent = false }
         self.channels?[index].isCurrent = true
         CoreDataHelper.shared.save()
         self.view?.reloadData()
