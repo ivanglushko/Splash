@@ -41,7 +41,6 @@ class SettingsTableViewController: UITableViewController {
 // MARK: - TableViewDataSource
 extension SettingsTableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(output.numberOfRows())
         return output.numberOfRows()
     }
     

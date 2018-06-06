@@ -54,6 +54,7 @@ extension SettingsPresenter: SettingsViewOutput {
         self.channels?.forEach { $0.isCurrent = false }
         self.channels?[index].isCurrent = true
         CoreDataHelper.shared.save()
+        self.channels?.forEach{ print ($0.url) }
         self.view?.reloadData()
         
         

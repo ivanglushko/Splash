@@ -22,12 +22,22 @@ class AddNoteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = true
+        createBarButton()
         setPlaceholder(textView: textTitle)
         setPlaceholder(textView: textFill)
     }
     
-    @IBAction private func addNote(_ sender: UIButton) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    @objc func addNote() {
         let title = textTitle.text!
         let fill = textFill.text!
         
@@ -37,6 +47,11 @@ class AddNoteViewController: UIViewController {
         print("fill: \(fill)")
         self.navigationController?.navigationBar.isHidden = false
         self.navigationController?.popViewController(animated: false)
+    }
+    
+    func createBarButton() {
+        let button = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(addNote) )
+        self.navigationItem.rightBarButtonItem = button
     }
 }
 
@@ -55,7 +70,7 @@ extension AddNoteViewController: UITextViewDelegate {
         }
     }
     
-    func setPlaceholder(textView: UITextView) {
+    private func setPlaceholder(textView: UITextView) {
         textView.delegate = self
         textView.textColor = .lightGray
         if textView == textTitle {
