@@ -12,15 +12,24 @@ import CoreData
 class SettingsPresenter {
     weak var view: SettingsViewInput?
     
+    private let fetchRequest = Channel.fetchRequest() as NSFetchRequest
+    private let fetchedResultsController: NSFetchedResultsController<Channel>!
+    
     private var channels: [Channel]? {
-        var channelsArray = CoreDataHelper.shared.fetch(entity: "Channel") as? [Channel]
-        channelsArray?.forEach { channel in
-            if channel.isCurrent {
-                channelsArray?.removeAll(channel)
-                channelsArray?.insert(channel, at: 0)
-            }
+        do {
+            try fetchedResultsController.performFetch()
+            let channels = fetchedResultsController.fetchedObjects
+            return channels
+        } catch let err {
+            print("Fetched Results Controller rror in fetching: ", err)
+            return nil
         }
-        return channelsArray
+    }
+    
+    init() {
+        self.fetchRequest.sortDescriptors = [NSSortDescriptor(key: "isCurrent", ascending: false)]
+        let context = CoreDataHelper.shared.context
+        self.fetchedResultsController = NSFetchedResultsController(fetchRequest: self.fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
     }
     
 }
@@ -48,16 +57,11 @@ extension SettingsPresenter: SettingsViewOutput {
     
     // MARK: UITableViewDelegate
     func tapLink(with index: Int) {
-        
-        // make it current
-        print("Index :",index)
+        let object = self.channels?[index]
         self.channels?.forEach { $0.isCurrent = false }
-        self.channels?[index].isCurrent = true
+        object?.isCurrent = true
         CoreDataHelper.shared.save()
-        self.channels?.forEach{ print ($0.url) }
         self.view?.reloadData()
-        
-        
     }
     
     // MARK: CoreData Methods

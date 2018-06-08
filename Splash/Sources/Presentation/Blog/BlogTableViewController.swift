@@ -15,6 +15,7 @@ class BlogTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         tableView.backgroundColor = .paleGreen
+        // CoreDataHelper.shared.deleteAll(fetchRequest: Blog.fetchRequest())
         self.presenter.view = self
         self.output = presenter
     }
