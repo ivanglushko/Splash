@@ -25,7 +25,7 @@ class BlogTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        output.fetchBlogs()
+        self.reloadData()
     }
 
 }
@@ -45,6 +45,18 @@ extension BlogTableViewController {
         guard let cell = tableView.cellForRow(at: indexPath) as? BlogCell else { return }
         cell.expanded = !cell.expanded
         tableView.reloadData()
+    }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .destructive, title: nil) { [weak self] (action, view, actionPerformed) in
+            self?.output.deleteBlog(indexPath: indexPath)
+            actionPerformed(true)
+        }
+        action.image = UIImage(named: "delete")
+        let  configuration = UISwipeActionsConfiguration(actions: [action])
+        
+        
+        return configuration
     }
 }
 

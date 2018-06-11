@@ -13,7 +13,7 @@ protocol BlogViewInput: class {
 }
 
 protocol BlogViewOutput: class {
-    func fetchBlogs()
+    func deleteBlog(indexPath: IndexPath) 
     func returnNumberOfRows() -> Int
     func configureCell(cell: BlogCell, indexPath: IndexPath) -> BlogCell
 }

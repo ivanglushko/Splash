@@ -12,6 +12,7 @@ protocol FeedViewInput: class {
     func setupInitialState()
     func reloadData()
     func showHints()
+    func showConnectionError()
     func showParsingError()
     func showLoading()
     func hideHints()
@@ -31,8 +32,8 @@ protocol FeedViewOutput: class {
     // UITableViewDataSource
     func numberOfSections() -> Int
     func numberOfRows() -> Int
-    func item(for indexPath: IndexPath) -> ArticleItem
+    func article(for indexPath: IndexPath) -> Article?
     
     // UITableViewDelegate
-    func tapArticle(with indexPath: Int)
+    func tapArticle(with index: Int)
 }

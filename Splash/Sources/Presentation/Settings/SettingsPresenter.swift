@@ -90,6 +90,14 @@ extension SettingsPresenter: SettingsViewOutput {
         }
     }
     
+    func deleteChannel(indexPath: IndexPath) {
+        if let channel = channels?[indexPath.row] {
+            CoreDataHelper.shared.delete(object: channel)
+            CoreDataHelper.shared.save()
+            view?.reloadData()
+        }
+    }
+    
     func triggerViewReadyEvent() {
         
     }

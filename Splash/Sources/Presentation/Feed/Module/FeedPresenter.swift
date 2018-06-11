@@ -13,8 +13,13 @@ class FeedPresenter {
     
     private let feedParser = FeedParser()
     private var items: [ArticleItem] = []
-    private var storedItems: [Article] = []
     private var channel: Channel?
+    private var articles: [Article]? {
+        let articles = channel?.article?.allObjects as? [Article]
+        let sortedArticles = articles?.sorted(by: { return $0.pubDate < $1.pubDate })
+        return sortedArticles
+    }
+
 }
 
 extension FeedPresenter: FeedViewOutput {
@@ -37,6 +42,15 @@ extension FeedPresenter: FeedViewOutput {
             return channel
         }()
         
+        let isConnectedToNetwork = AppDelegate().isConnectedToNetwork()
+        guard isConnectedToNetwork else {
+            if let articles = channel?.article?.allObjects, !articles.isEmpty {
+                view?.reloadData()
+            } else {
+                view?.showConnectionError()
+            }
+            return
+        }
         if let _ = channel {
             view?.showLoading()
             startParsingURLs()
@@ -58,16 +72,17 @@ extension FeedPresenter: FeedViewOutput {
     }
     
     func numberOfRows() -> Int {
-        return items.count
+        return articles?.count ?? 0
     }
     
-    func item(for indexPath: IndexPath) -> ArticleItem {
-        return items[indexPath.row]
+    func article(for indexPath: IndexPath) -> Article? {
+        return articles?[indexPath.row]
     }
     
     // MARK: UITableViewDelegate
-    func tapArticle(with indexPath: Int) {
-        items[indexPath].expanded = !items[indexPath].expanded
+    func tapArticle(with index: Int) {
+        guard let article = articles?[index] else { return }
+        article.expanded = !article.expanded
         DispatchQueue.main.async { self.view?.reloadData() }
     }
 }
@@ -107,35 +122,28 @@ private extension FeedPresenter {
     func didParseURL(with items: [ArticleItem]) {
         self.items = items
         let name = feedParser.returnChannelName()
-        assert(channel != nil)
         channel?.name = name
-        fillStoredItems()
+        fillArticles()
         DispatchQueue.main.async {
             self.view?.reloadData()
         }
         
     }
     
-    func fillStoredItems() {
+    func fillArticles() {
+        articles?.forEach { CoreDataHelper.shared.delete(object: $0) }
         for item in items {
             let article = Article(context: CoreDataHelper.shared.context)
             article.title = item.title
             article.descriptionString = item.description
-            article.pubDateString = item.pubDateString
+            article.pubDate = item.pubDate
             article.expanded = item.expanded
             article.isFavourite = false
             article.id = NSUUID().uuidString
             article.channel = channel
         }
         CoreDataHelper.shared.save()
-        storedItems = CoreDataHelper.shared.fetch(entity: "Article") as! [Article]
-        // deleteAllArticles()
-        print("Stored items after filling",storedItems.count)
+        print("Stored items after filling", articles?.count as Int!)
     }
     
-    func deleteAllArticles() {
-        CoreDataHelper.shared.deleteAll(fetchRequest: Article.fetchRequest())
-        storedItems = CoreDataHelper.shared.fetch(entity: "Article") as! [Article]
-        print("Stored items after delete",storedItems.count)
-    }
 }

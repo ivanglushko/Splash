@@ -21,7 +21,7 @@ extension Article {
     @NSManaged public var expanded: Bool
     @NSManaged public var id: String
     @NSManaged public var isFavourite: Bool
-    @NSManaged public var pubDateString: String
+    @NSManaged public var pubDate: Date
     @NSManaged public var title: String
     @NSManaged public var channel: Channel?
 

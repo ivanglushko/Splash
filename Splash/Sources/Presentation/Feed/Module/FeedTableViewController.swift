@@ -30,7 +30,7 @@ class FeedTableViewController: UITableViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
         output.triggerViewWillAppearEvent()
         self.navigationItem.title = output.setNavigationItemTitle()
         animateArrow(view: arrowHintImageView)
@@ -53,8 +53,8 @@ extension FeedTableViewController {
             return UITableViewCell()
         }
         let numberOfItems = output.numberOfItems
-        let item = output.item(for: indexPath)
-        cell.configure(with: item, numberOfItems: numberOfItems, indexPath: indexPath)
+        let article = output.article(for: indexPath)
+        cell.configure(with: article, numberOfItems: numberOfItems, indexPath: indexPath)
         
         return cell
     }
@@ -91,6 +91,7 @@ extension FeedTableViewController: FeedViewInput {
     }
     
     func reloadData() {
+        self.navigationItem.title = output.setNavigationItemTitle()
         tableView.reloadData()
     }
     
@@ -98,6 +99,11 @@ extension FeedTableViewController: FeedViewInput {
         newLinkLabel.text = NewLinkLabel().text
         newLinkLabel.isHidden = false
         arrowHintImageView.isHidden = false
+    }
+    
+    func showConnectionError() {
+        arrowHintImageView.isHidden = true
+        newLinkLabel.text = "Connection has failed."
     }
     
     func showParsingError() {

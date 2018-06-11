@@ -11,13 +11,19 @@ import ChameleonFramework
 
 class BlogPresenter {
     weak var view: BlogViewInput?
-    private var blogs: [Blog]?
+    private var blogs: [Blog]? {
+       return CoreDataHelper.shared.fetch(entity: "Blog") as? [Blog]
+    }
 }
 
 extension BlogPresenter: BlogViewOutput {
-    func fetchBlogs() {
-        self.blogs = CoreDataHelper.shared.fetch(entity: "Blog") as? [Blog]
-        view?.reloadData()
+    
+    func deleteBlog(indexPath: IndexPath) {
+        if let blog = blogs?[indexPath.row] {
+            CoreDataHelper.shared.delete(object: blog)
+            CoreDataHelper.shared.save()
+            view?.reloadData()
+        }
     }
     
     func returnNumberOfRows() -> Int {

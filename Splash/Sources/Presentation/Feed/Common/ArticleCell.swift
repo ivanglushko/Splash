@@ -15,11 +15,12 @@ class ArticleCell: UITableViewCell {
 
     private let defaultLinesNumber = 4
 
-    func configure(with item: ArticleItem, numberOfItems: Int, indexPath: IndexPath) {
-        titleLabel.text = item.title
-        dateLabel.text = item.pubDateString
-        descriptionLabel.text = item.description
-        descriptionLabel.numberOfLines = item.expanded ? 0 : defaultLinesNumber
+    func configure(with article: Article?, numberOfItems: Int, indexPath: IndexPath) {
+        guard let article = article else { return }
+        titleLabel.text = article.title
+        dateLabel.text = article.pubDate.dateString() + " at " + article.pubDate.timeString()
+        descriptionLabel.text = article.descriptionString
+        descriptionLabel.numberOfLines = article.expanded ? 0 : defaultLinesNumber
         
         if let color = UIColor.paleGreen.darken(byPercentage:(CGFloat(indexPath.row) / CGFloat(numberOfItems)) / 2) {
             backgroundColor = color

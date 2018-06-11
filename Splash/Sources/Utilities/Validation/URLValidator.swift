@@ -19,3 +19,4 @@ struct URLValidator: URLValidatorProtocol  {
     
     
 }
+

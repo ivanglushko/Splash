@@ -14,6 +14,7 @@ protocol SettingsViewInput: class {
 
 protocol SettingsViewOutput: class {
     func createChannel(url: String)
+    func deleteChannel(indexPath: IndexPath)
     func deleteChannelsArticles()
     func numberOfRows() -> Int
     func url(for indexPath: IndexPath) -> String?
