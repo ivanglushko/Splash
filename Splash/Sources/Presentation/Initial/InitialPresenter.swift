@@ -14,12 +14,8 @@ class InitialPresenter {
 
 extension InitialPresenter: InitialViewOutput {
     func triggerViewReadyEvent() {
-        view?.setupInitialState()
-
-        // Вот так можно симулировать работу. Типа данные подгружаются 2 секунды
-        let seconds = 2.0
-        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
-            self.view?.openMainScreen()
+        DispatchQueue.main.async {
+          self.view?.openMainScreen()
         }
     }
 }

@@ -11,11 +11,9 @@ import Foundation
 protocol FeedViewInput: class {
     func setupInitialState()
     func reloadData()
-    func showHints()
-    func showConnectionError()
-    func showParsingError()
-    func showLoading()
-    func hideHints()
+    func showHint()
+    func configureNewLinkLabel(with: NewLinkLabelState)
+    func hideHint()
 }
 
 protocol FeedViewOutput: class {
@@ -25,9 +23,6 @@ protocol FeedViewOutput: class {
     // Lifecycle
     func triggerViewReadyEvent()
     func triggerViewWillAppearEvent()
-    
-    // User actions
-    func triggerAddNewChannelEvent()
     
     // UITableViewDataSource
     func numberOfSections() -> Int

@@ -50,14 +50,4 @@ extension SettingsTableViewController {
         }
         present(alert,animated: true)
     }
-    
-    func buildDeleteAllUrlsAlert() {
-        let alert = UIAlertController(title: "Attention!", message: nil, preferredStyle: .actionSheet)
-        alert.set(message: "Do you want to delete all the links?", font: .systemFont(ofSize: 15), color: .red)
-        alert.addAction(title: "OK", style: .default, isEnabled: true) { [weak self] action in
-            self?.output.deleteChannelsArticles()
-        }
-        alert.addAction(title: "Cancel", style: .default)
-        present(alert,animated: true)
-    }
 }

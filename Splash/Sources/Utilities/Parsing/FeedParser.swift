@@ -127,10 +127,6 @@ fileprivate extension FeedParser {
 
 // MARK: - Presenter's methods
 extension FeedParser {
-    func returnItems() -> [ArticleItem] {
-        return items
-    }
-    
     func returnChannelName() -> String {
         return channelTitle
     }

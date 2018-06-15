@@ -47,23 +47,18 @@ extension FeedPresenter: FeedViewOutput {
             if let articles = channel?.article?.allObjects, !articles.isEmpty {
                 view?.reloadData()
             } else {
-                view?.showConnectionError()
+                view?.configureNewLinkLabel(with: NewLinkLabelState.connectionError)
             }
             return
         }
         if let _ = channel {
-            view?.showLoading()
+            view?.configureNewLinkLabel(with: NewLinkLabelState.loading)
             startParsingURLs()
         } else {
             items = []
             view?.reloadData()
-            view?.showHints()
+            view?.showHint()
         }
-    }
-    
-    // MARK: User actions
-    func triggerAddNewChannelEvent() {
-        debugPrint("\(#function) in \(#file) without implementation")
     }
     
     // MARK: UITableViewDataSource
@@ -102,11 +97,11 @@ private extension FeedPresenter {
                 DispatchQueue.main.async {
                     self.items = []
                     self.view?.reloadData()
-                    self.view?.showParsingError()
+                    self.view?.configureNewLinkLabel(with: NewLinkLabelState.parsingError)
                 }
             } else {
                 DispatchQueue.main.async {
-                    self.view?.hideHints()
+                    self.view?.hideHint()
                     self.view?.reloadData()
                 }
             }
@@ -115,8 +110,6 @@ private extension FeedPresenter {
             print(items.count)
             self.didParseURL(with: items)
             }
-
-
     }
     
     func didParseURL(with items: [ArticleItem]) {
@@ -143,7 +136,7 @@ private extension FeedPresenter {
             article.channel = channel
         }
         CoreDataHelper.shared.save()
-        print("Stored items after filling", articles?.count as Int!)
+        print("Stored items after filling", articles?.count ?? 0)
     }
     
 }

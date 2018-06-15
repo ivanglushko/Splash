@@ -12,7 +12,6 @@ import ChameleonFramework
 class FeedTableViewController: UITableViewController {
     // MARK: - Outlets
     private lazy var newLinkLabel = NewLinkLabel()
-    private lazy var arrowHintImageView = ArrowHintImageView()
     
     // MARK: - Entities
     private let kArticleCellReuseId = "ArticleCell"
@@ -33,7 +32,6 @@ class FeedTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         output.triggerViewWillAppearEvent()
         self.navigationItem.title = output.setNavigationItemTitle()
-        animateArrow(view: arrowHintImageView)
     }
 }
 
@@ -67,17 +65,6 @@ extension FeedTableViewController {
     }
 }
 
-// MARK: - Animations
-private extension FeedTableViewController {
-    func animateArrow(view: UIView) {
-        UIView.animate(withDuration: 1) {
-            view.center.y += 50
-            view.alpha = 1
-            view.center.y += 50
-        }
-    }
-}
-
 // MARK: - FeedViewInput
 extension FeedTableViewController: FeedViewInput {
     func setupInitialState() {
@@ -85,9 +72,6 @@ extension FeedTableViewController: FeedViewInput {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.addSubview(newLinkLabel)
         newLinkLabel.center = tableView.center
-        tableView.addSubview(arrowHintImageView)
-        arrowHintImageView.center.y -= 100
-        arrowHintImageView.alpha = 0
     }
     
     func reloadData() {
@@ -95,29 +79,17 @@ extension FeedTableViewController: FeedViewInput {
         tableView.reloadData()
     }
     
-    func showHints() {
+    func showHint() {
         newLinkLabel.text = NewLinkLabel().text
         newLinkLabel.isHidden = false
-        arrowHintImageView.isHidden = false
     }
     
-    func showConnectionError() {
-        arrowHintImageView.isHidden = true
-        newLinkLabel.text = "Connection has failed."
-    }
-    
-    func showParsingError() {
-        arrowHintImageView.isHidden = true
+    func configureNewLinkLabel(with state: NewLinkLabelState) {
         newLinkLabel.isHidden = false
-        newLinkLabel.text = "Error due parsing."
-    }
-    func showLoading() {
-        arrowHintImageView.isHidden = true
-        newLinkLabel.text = "Loading articles..."
+        newLinkLabel.text = state.rawValue
     }
     
-    func hideHints() {
+    func hideHint() {
         newLinkLabel.isHidden = true
-        arrowHintImageView.isHidden = true
     }
 }

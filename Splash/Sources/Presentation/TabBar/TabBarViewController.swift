@@ -9,8 +9,6 @@
 import UIKit
 import ChameleonFramework
 
-// #98fb98 - green
-// #2887c2 - blue
 class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         self.tabBar.isTranslucent = false

@@ -14,7 +14,7 @@ protocol URLValidatorProtocol {
 
 struct URLValidator: URLValidatorProtocol  {
     func isValid(text: String) -> Bool {
-        return text.hasPrefix("https:/") && text.hasSuffix("rss") || text.hasPrefix("http") && text.hasSuffix("rss")
+        return text.hasPrefix("https://") && text.hasSuffix("rss")
     }
     
     

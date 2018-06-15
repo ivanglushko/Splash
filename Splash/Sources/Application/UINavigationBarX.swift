@@ -9,10 +9,6 @@
 import UIKit
 import ChameleonFramework
 
-// #79c879
-
-// #98fb98
-
 class UINavigationControllerX: UINavigationController {
     
     let textAttributes = [NSAttributedStringKey.foregroundColor: UIColor.paleGreenDark ]

@@ -28,12 +28,8 @@ class SettingsTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    
     @IBAction private func addLink(_ sender: UIBarButtonItem) {
         buildAddAlert()
-    }
-    @IBAction private func deleteAllUrls(_ sender: UIBarButtonItem) {
-        buildDeleteAllUrlsAlert()
     }
 }
 
@@ -59,12 +55,8 @@ extension SettingsTableViewController {
         }
         action.image = UIImage(named: "delete")
         let  configuration = UISwipeActionsConfiguration(actions: [action])
-        
-        
         return configuration
     }
-    
-
 }
 
 extension SettingsTableViewController {
@@ -72,13 +64,11 @@ extension SettingsTableViewController {
         let cell = UITableViewCell()
         cell.textLabel?.text = output.url(for: indexPath)
         cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        
         if indexPath.row == 0 {
             cell.backgroundColor = FlatGreen()
         }
         return cell
     }
-    
 }
 
 extension SettingsTableViewController: SettingsViewInput {

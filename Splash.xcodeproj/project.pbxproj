@@ -90,8 +90,8 @@
 		FA60946E20B1D7ED00299347 /* Article+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA60946A20B1D7ED00299347 /* Article+CoreDataProperties.swift */; };
 		FA6A1A5420A1DA2D005BECBE /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6A1A5320A1DA2D005BECBE /* CoreDataHelper.swift */; };
 		FA6A1A5720A26593005BECBE /* NewLinkLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6A1A5620A26593005BECBE /* NewLinkLabel.swift */; };
-		FA7281C820A3BCE400C35DB5 /* ArrowHintImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7281C720A3BCE400C35DB5 /* ArrowHintImageView.swift */; };
 		FA7A775420C33B94001D83E9 /* UINavigationBarX.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A775320C33B94001D83E9 /* UINavigationBarX.swift */; };
+		FA80077920D3E488005973D5 /* NewLinkLabelState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80077820D3E488005973D5 /* NewLinkLabelState.swift */; };
 		FA8FBA4A20713C420029E430 /* ArticleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8FBA4920713C420029E430 /* ArticleItem.swift */; };
 		FA8FBA4C207147A10029E430 /* URLValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8FBA4B207147A10029E430 /* URLValidator.swift */; };
 		FAD169D820B764890017A58C /* Alerts+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD169D720B764890017A58C /* Alerts+Extension.swift */; };
@@ -193,8 +193,8 @@
 		FA60946A20B1D7ED00299347 /* Article+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Article+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FA6A1A5320A1DA2D005BECBE /* CoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		FA6A1A5620A26593005BECBE /* NewLinkLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLinkLabel.swift; sourceTree = "<group>"; };
-		FA7281C720A3BCE400C35DB5 /* ArrowHintImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrowHintImageView.swift; sourceTree = "<group>"; };
 		FA7A775320C33B94001D83E9 /* UINavigationBarX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBarX.swift; sourceTree = "<group>"; };
+		FA80077820D3E488005973D5 /* NewLinkLabelState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewLinkLabelState.swift; sourceTree = "<group>"; };
 		FA8FBA4920713C420029E430 /* ArticleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleItem.swift; sourceTree = "<group>"; };
 		FA8FBA4B207147A10029E430 /* URLValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLValidator.swift; sourceTree = "<group>"; };
 		FAD169D720B764890017A58C /* Alerts+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Alerts+Extension.swift"; sourceTree = "<group>"; };
@@ -274,6 +274,7 @@
 			isa = PBXGroup;
 			children = (
 				9F5339FF207C80AA0074AC50 /* ArticleCell.swift */,
+				FA80077820D3E488005973D5 /* NewLinkLabelState.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -710,7 +711,6 @@
 			isa = PBXGroup;
 			children = (
 				FA6A1A5620A26593005BECBE /* NewLinkLabel.swift */,
-				FA7281C720A3BCE400C35DB5 /* ArrowHintImageView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -950,6 +950,7 @@
 				FADFC2FE206C6C03000BECFD /* FeedParser.swift in Sources */,
 				FAD3E88920C493C80041335A /* UIColor+Extension.swift in Sources */,
 				FA2E0BA3209FD03400E0DEE7 /* PhoneCodeCell.swift in Sources */,
+				FA80077920D3E488005973D5 /* NewLinkLabelState.swift in Sources */,
 				FA7A775420C33B94001D83E9 /* UINavigationBarX.swift in Sources */,
 				2C8BB467207424A800711675 /* SettingsTableViewController.swift in Sources */,
 				9F5339FE207C80940074AC50 /* FeedViewIO.swift in Sources */,
@@ -963,7 +964,6 @@
 				FA2E0B8F209FD03400E0DEE7 /* UISearchBar+Extensions.swift in Sources */,
 				FA2E0BB8209FD03400E0DEE7 /* TextField.swift in Sources */,
 				FA4E4A4320C16EAB00A103F5 /* BlogPresenter.swift in Sources */,
-				FA7281C820A3BCE400C35DB5 /* ArrowHintImageView.swift in Sources */,
 				FA2E0BB1209FD03400E0DEE7 /* TwoTextFieldsViewController.swift in Sources */,
 				FA2E0B9E209FD03400E0DEE7 /* LocalePickerViewController.swift in Sources */,
 				FA2E0B93209FD03400E0DEE7 /* UIView+Extensions.swift in Sources */,

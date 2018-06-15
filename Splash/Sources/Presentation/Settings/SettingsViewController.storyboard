@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -33,18 +32,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Links" id="Yba-r4-YHR">
-                        <rightBarButtonItems>
-                            <barButtonItem image="plus" id="25T-u2-YhI">
-                                <connections>
-                                    <action selector="addLink:" destination="VIo-as-8Le" id="r1b-WT-jbK"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="trash" id="MSF-uM-flN">
-                                <connections>
-                                    <action selector="deleteAllUrls:" destination="VIo-as-8Le" id="lHg-mc-w0t"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" image="plus" id="25T-u2-YhI">
+                            <connections>
+                                <action selector="addLink:" destination="VIo-as-8Le" id="r1b-WT-jbK"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uiy-Br-QjM" userLabel="First Responder" sceneMemberID="firstResponder"/>

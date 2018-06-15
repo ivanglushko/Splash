@@ -15,7 +15,6 @@ class BlogTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         tableView.backgroundColor = .paleGreen
-        // CoreDataHelper.shared.deleteAll(fetchRequest: Blog.fetchRequest())
         self.presenter.view = self
         self.output = presenter
     }
@@ -23,7 +22,6 @@ class BlogTableViewController: UITableViewController {
     @IBAction func addNote(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "addNote", sender: self)
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         self.reloadData()
     }
@@ -54,8 +52,6 @@ extension BlogTableViewController {
         }
         action.image = UIImage(named: "delete")
         let  configuration = UISwipeActionsConfiguration(actions: [action])
-        
-        
         return configuration
     }
 }
