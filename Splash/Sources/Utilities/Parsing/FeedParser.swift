@@ -9,31 +9,28 @@
 import Foundation
 
 enum RssTag: String {
-    case item = "item"
-    case title = "title"
-    case description = "description"
-    case pubDate = "pubDate"
+    case item
+    case title
+    case description
+    case pubDate
     case channel
 }
-
 
 class FeedParser: NSObject {
     fileprivate var parser = XMLParser()
     fileprivate var items = [ArticleItem]()
     fileprivate var completionHandler: (([ArticleItem]) -> Void)?
     fileprivate var parserError: Error?
-    
+
     fileprivate var currentElement = ""
     fileprivate var currentTitle = ""
     fileprivate var currentDescription = ""
     fileprivate var currentPubDate = ""
     fileprivate var channelTitle = ""
     fileprivate var isChannelTitle = false
-    
-    
+
     func parseFeed(feedUrl: URL,errorHandler: @escaping ((Error?) -> Void), completionHandler: (([ArticleItem]) -> Void)?) {
         self.completionHandler = completionHandler
-        
 
         let request = URLRequest(url: feedUrl)
         let task = URLSession.shared.dataTask(with: request) {  (data, response, error) in
@@ -41,7 +38,7 @@ class FeedParser: NSObject {
                 else {
                     debugPrint(error ?? "Error is nil")
                     errorHandler(error)
-                    return 
+                    return
             }
             self.parser = XMLParser(data: data)
             self.parser.delegate = self
@@ -57,21 +54,21 @@ extension FeedParser: XMLParserDelegate {
     func parserDidStartDocument(_ parser: XMLParser) {
         items = [ArticleItem]()
     }
-    
-    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String] = [:]) {
+
+   func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String: String] = [:]) {
         currentElement = elementName
         if currentElement == RssTag.item.rawValue {
             currentTitle = ""
             currentDescription = ""
             currentPubDate = ""
         }
-        
+
         if currentElement == RssTag.channel.rawValue {
             channelTitle = ""
             isChannelTitle = true
         }
     }
-    
+
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         switch currentElement {
         case RssTag.title.rawValue:
@@ -89,7 +86,7 @@ extension FeedParser: XMLParserDelegate {
             break
         }
     }
-    
+
     func parser(_ parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
         if elementName == RssTag.item.rawValue {
             let title = trimmed(string: currentTitle)
@@ -99,7 +96,7 @@ extension FeedParser: XMLParserDelegate {
             rfc2822DateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale!
             rfc2822DateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss Z"
             let date = rfc2822DateFormatter.date(from: pubDateString)
-            
+
             items += [ArticleItem(title: title, description: description, pubDate: date ?? Date(), expanded: false)]
         }
         if elementName == RssTag.channel.rawValue  {
@@ -107,12 +104,12 @@ extension FeedParser: XMLParserDelegate {
             print("We have a name: \(channelTitle)")
         }
     }
-    
+
     func parserDidEndDocument(_ parser: XMLParser) {
         guard let completionHandler = completionHandler else { return }
         completionHandler(items)
     }
-    
+
     func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
         self.parserError = parseError
         debugPrint(parseError.localizedDescription)

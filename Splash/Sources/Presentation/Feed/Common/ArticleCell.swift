@@ -9,9 +9,9 @@
 import UIKit
 import ChameleonFramework
 class ArticleCell: UITableViewCell {
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var dateLabel: UILabel!
+    @IBOutlet private weak var descriptionLabel: UILabel!
 
     private let defaultLinesNumber = 4
 
@@ -21,13 +21,6 @@ class ArticleCell: UITableViewCell {
         dateLabel.text = article.pubDate.dateString() + " at " + article.pubDate.timeString()
         descriptionLabel.text = article.descriptionString
         descriptionLabel.numberOfLines = article.expanded ? 0 : defaultLinesNumber
-        
-        if let color = UIColor.paleGreen.darken(byPercentage:(CGFloat(indexPath.row) / CGFloat(numberOfItems)) / 2) {
-            backgroundColor = color
-            titleLabel.textColor = ContrastColorOf(color, returnFlat: true)
-            descriptionLabel.textColor = ContrastColorOf(color, returnFlat: true)
-            dateLabel.textColor = ContrastColorOf(color, returnFlat: true)
-        }
-
+        backgroundColor = .paleGreen
     }
 }

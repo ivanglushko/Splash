@@ -46,7 +46,7 @@
         <!--Settings-->
         <scene sceneID="dtZ-ev-1iV">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nyY-sE-e5c" customClass="UINavigationControllerX" customModule="Splash" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SettingsUINavigationControllerX" automaticallyAdjustsScrollViewInsets="NO" id="nyY-sE-e5c" customClass="UINavigationControllerX" customModule="Splash" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="settingsIcon" id="yNh-lQ-KsO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="RCb-98-lP3">

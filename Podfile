@@ -6,5 +6,5 @@ target 'Splash' do
 
   # Pods for Splash
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
-
+  pod 'Reachability'
 end

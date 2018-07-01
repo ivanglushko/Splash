@@ -92,7 +92,7 @@
         <!--Blog-->
         <scene sceneID="mct-p4-h3c">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LKu-Kj-kQf" customClass="UINavigationControllerX" customModule="Splash" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="BlogUINavigationControllerX" automaticallyAdjustsScrollViewInsets="NO" id="LKu-Kj-kQf" customClass="UINavigationControllerX" customModule="Splash" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Blog" image="blogIcon" id="WNh-tz-119"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="hSe-O5-cGp">

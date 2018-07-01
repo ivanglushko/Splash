@@ -10,10 +10,7 @@ import Foundation
 import CoreData
 
 final class CoreDataHelper {
-    
     static var shared = CoreDataHelper()
-    
-    
     var context: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
@@ -26,15 +23,11 @@ final class CoreDataHelper {
         })
         return container
     }()
-    
     var articleEntity: NSEntityDescription?
     var isCurrentPredicate = NSPredicate(format: "isCurrent == true")
-    
     init() {
         self.articleEntity  = NSEntityDescription.entity(forEntityName: "Article", in: context)
     }
-    
-    
      func save() {
         if context.hasChanges {
             do {
@@ -46,7 +39,6 @@ final class CoreDataHelper {
             }
         }
     }
-    
     func fetch(entity: String, predicate: NSPredicate? = nil) -> [Any] {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
         if let predicate = predicate {
@@ -59,16 +51,14 @@ final class CoreDataHelper {
             fatalError("\(error)")
         }
     }
-    
     func delete(object: NSManagedObject) {
         context.delete(object)
     }
-    
     func deleteAll(fetchRequest: NSFetchRequest<NSFetchRequestResult>) {
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         do {
             try context.execute(deleteRequest)
-        }catch let err {
+        } catch let err {
             print("Error due deletion: \(err)")
         }
         save()

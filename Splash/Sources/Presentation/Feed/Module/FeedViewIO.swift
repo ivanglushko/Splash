@@ -19,16 +19,13 @@ protocol FeedViewInput: class {
 protocol FeedViewOutput: class {
     var numberOfItems: Int {get}
     func setNavigationItemTitle() -> String
-    
     // Lifecycle
     func triggerViewReadyEvent()
     func triggerViewWillAppearEvent()
-    
     // UITableViewDataSource
     func numberOfSections() -> Int
     func numberOfRows() -> Int
     func article(for indexPath: IndexPath) -> Article?
-    
     // UITableViewDelegate
     func tapArticle(with index: Int)
 }

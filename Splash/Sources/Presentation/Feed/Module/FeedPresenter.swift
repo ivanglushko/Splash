@@ -7,19 +7,26 @@
 //
 
 import Foundation
+import Reachability
+import SystemConfiguration
 
 class FeedPresenter {
     weak var view: FeedViewInput?
-    
+    private lazy var reachability = Reachability()
     private let feedParser = FeedParser()
     private var items: [ArticleItem] = []
-    private var channel: Channel?
+    private var channel: Channel? {
+        let predicate = CoreDataHelper.shared.isCurrentPredicate
+        guard let channels =  CoreDataHelper.shared.fetch(entity: "Channel", predicate: predicate) as? [Channel] else { return nil }
+        guard let channel = channels.first else { return nil }
+        return channel
+    }
     private var articles: [Article]? {
-        let articles = channel?.article?.allObjects as? [Article]
-        let sortedArticles = articles?.sorted(by: { return $0.pubDate < $1.pubDate })
+        let articles = channel?.articles?.allObjects as? [Article]
+        let sortedArticles = articles?.sorted { $0.pubDate < $1.pubDate }
         return sortedArticles
     }
-
+    
 }
 
 extension FeedPresenter: FeedViewOutput {
@@ -30,50 +37,21 @@ extension FeedPresenter: FeedViewOutput {
     // MARK: Lifecycle
     func triggerViewReadyEvent() {
         view?.setupInitialState()
-        
     }
-    
     func triggerViewWillAppearEvent() {
-        channel = {
-            let predicate = CoreDataHelper.shared.isCurrentPredicate
-            let channelArray =  CoreDataHelper.shared.fetch(entity: "Channel", predicate: predicate) as! [Channel]
-            guard let channel = channelArray.first else { return nil }
-            print(channel.url)
-            return channel
-        }()
+        checkConnection()
         
-        let isConnectedToNetwork = AppDelegate().isConnectedToNetwork()
-        guard isConnectedToNetwork else {
-            if let articles = channel?.article?.allObjects, !articles.isEmpty {
-                view?.reloadData()
-            } else {
-                view?.configureNewLinkLabel(with: NewLinkLabelState.connectionError)
-            }
-            return
-        }
-        if let _ = channel {
-            view?.configureNewLinkLabel(with: NewLinkLabelState.loading)
-            startParsingURLs()
-        } else {
-            items = []
-            view?.reloadData()
-            view?.showHint()
-        }
     }
-    
     // MARK: UITableViewDataSource
     func numberOfSections() -> Int {
         return 1
     }
-    
     func numberOfRows() -> Int {
         return articles?.count ?? 0
     }
-    
     func article(for indexPath: IndexPath) -> Article? {
         return articles?[indexPath.row]
     }
-    
     // MARK: UITableViewDelegate
     func tapArticle(with index: Int) {
         guard let article = articles?[index] else { return }
@@ -84,45 +62,30 @@ extension FeedPresenter: FeedViewOutput {
 
 // MARK: - Private helpers
 private extension FeedPresenter {
-    
     func startParsingURLs() {
-        if let urlString = channel?.url , let url = URL(string: urlString) {
+        if let urlString = channel?.url, let url = URL(string: urlString) {
             DispatchQueue.main.async { self.parseURL(url: url) }
         }
     }
-    
     func parseURL(url: URL) {
-        let errorHandler: ((Error?) -> Void) = { err in
-            if let _ = err {
-                DispatchQueue.main.async {
-                    self.items = []
-                    self.view?.reloadData()
-                    self.view?.configureNewLinkLabel(with: NewLinkLabelState.parsingError)
-                }
-            } else {
-                DispatchQueue.main.async {
-                    self.view?.hideHint()
-                    self.view?.reloadData()
-                }
+        feedParser.parseFeed(feedUrl: url, errorHandler: { [weak self] (error) in
+            if let error = error {
+                self?.didFailureParsing(with: error)
             }
-        }
-        feedParser.parseFeed(feedUrl: url, errorHandler: errorHandler) { (items) in
-            print(items.count)
-            self.didParseURL(with: items)
-            }
+        }, completionHandler: { [weak self] (items) in
+            self?.didParseURL(with: items)
+        })
     }
-    
     func didParseURL(with items: [ArticleItem]) {
         self.items = items
         let name = feedParser.returnChannelName()
         channel?.name = name
         fillArticles()
-        DispatchQueue.main.async {
-            self.view?.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.view?.hideHint()
+            self?.view?.reloadData()
         }
-        
     }
-    
     func fillArticles() {
         articles?.forEach { CoreDataHelper.shared.delete(object: $0) }
         for item in items {
@@ -131,12 +94,58 @@ private extension FeedPresenter {
             article.descriptionString = item.description
             article.pubDate = item.pubDate
             article.expanded = item.expanded
-            article.isFavourite = false
             article.id = NSUUID().uuidString
             article.channel = channel
         }
         CoreDataHelper.shared.save()
         print("Stored items after filling", articles?.count ?? 0)
     }
+    func didFailureParsing(with: Error) {
+        DispatchQueue.main.async {
+            self.items = []
+            self.view?.reloadData()
+            self.view?.configureNewLinkLabel(with: NewLinkLabelState.parsingError)
+        }
+    }
     
+    // DELETE LATER ON IF I'LL FIND A BETTER SOLUTION
+    func isConnectedToNetwork() -> Bool {
+        
+        var zeroAddress = sockaddr_in()
+        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        
+        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
+                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
+            }
+        }
+        
+        var flags = SCNetworkReachabilityFlags()
+        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+            return false
+        }
+        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
+        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
+        return (isReachable && !needsConnection)
+        
+    }
+    
+    
+    func checkConnection() {
+        if isConnectedToNetwork() {
+            if channel != nil {
+                view?.configureNewLinkLabel(with: NewLinkLabelState.loading)
+                startParsingURLs()
+            } else {
+                items = []
+                view?.reloadData()
+                view?.showHint()
+            }
+        } else if let articles = self.articles, !articles.isEmpty {
+            view?.reloadData()
+        } else {
+            view?.configureNewLinkLabel(with: NewLinkLabelState.connectionError)
+        }
+    }
 }

@@ -12,11 +12,9 @@ protocol URLValidatorProtocol {
     func isValid(text: String) -> Bool
 }
 
-struct URLValidator: URLValidatorProtocol  {
+struct URLValidator: URLValidatorProtocol {
     func isValid(text: String) -> Bool {
         return text.hasPrefix("https://") && text.hasSuffix("rss")
     }
-    
-    
-}
 
+}

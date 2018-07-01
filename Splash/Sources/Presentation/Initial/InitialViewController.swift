@@ -10,13 +10,13 @@ import UIKit
 
 class InitialViewController: UIViewController {
     @IBOutlet private weak var startupImage: UIImageView!
-    
+
     var output: InitialViewOutput {
         let presenter = InitialPresenter()
         presenter.view = self
-        return presenter 
+        return presenter
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         output.triggerViewReadyEvent()
@@ -25,7 +25,7 @@ class InitialViewController: UIViewController {
 
 // MARK: - InitialViewInput
 extension InitialViewController: InitialViewInput {
-    
+
     func openMainScreen() {
         performSegue(withIdentifier: "GoToTabBar", sender: self)
     }

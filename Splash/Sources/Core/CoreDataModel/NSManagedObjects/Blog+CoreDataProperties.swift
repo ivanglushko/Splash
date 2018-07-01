@@ -10,7 +10,6 @@
 import Foundation
 import CoreData
 
-
 extension Blog {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Blog> {

@@ -88,7 +88,7 @@
         <!--Feed-->
         <scene sceneID="CGY-g1-roB">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HYa-Gv-RWU" customClass="UINavigationControllerX" customModule="Splash" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="FeedUINavigationControllerX" automaticallyAdjustsScrollViewInsets="NO" id="HYa-Gv-RWU" customClass="UINavigationControllerX" customModule="Splash" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Feed" image="cloudIcon" id="Aye-gr-fV6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="PkN-gl-hZo">

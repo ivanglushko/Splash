@@ -253,6 +253,38 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		2C469ADA20D488240034D3E7 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				FA2D6F4520763B98002E3414 /* InitialViewController.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		2C469ADB20D488360034D3E7 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				FA2D6F4720763BFA002E3414 /* TabBarViewController.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		2C469ADC20D488420034D3E7 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				FA2D6F4D20763C8B002E3414 /* AddNoteViewController.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		2C469ADD20D488470034D3E7 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				FA2D6F4F20763CBE002E3414 /* SettingsViewController.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
 		836C7887F40684C598C38575 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,7 +337,7 @@
 				FA2D6F43207636F5002E3414 /* InitialViewIO.swift */,
 				FA071B9E206EDA8E00359F13 /* InitialPresenter.swift */,
 				FA071B9C206ED9F700359F13 /* InitialViewController.swift */,
-				FA2D6F4520763B98002E3414 /* InitialViewController.storyboard */,
+				2C469ADA20D488240034D3E7 /* Storyboard */,
 			);
 			path = Initial;
 			sourceTree = "<group>";
@@ -326,7 +358,7 @@
 			children = (
 				FA2D6F5320764F7E002E3414 /* TabBarViewIO.swift */,
 				2C72C5032073B88500C300B2 /* TabBarViewController.swift */,
-				FA2D6F4720763BFA002E3414 /* TabBarViewController.storyboard */,
+				2C469ADB20D488360034D3E7 /* Storyboard */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -350,7 +382,7 @@
 				FA2D6F5D2076577E002E3414 /* SettingsPresenter.swift */,
 				2C8BB466207424A800711675 /* SettingsTableViewController.swift */,
 				FAD169D720B764890017A58C /* Alerts+Extension.swift */,
-				FA2D6F4F20763CBE002E3414 /* SettingsViewController.storyboard */,
+				2C469ADD20D488470034D3E7 /* Storyboard */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -361,7 +393,7 @@
 				FA2D6F5920764FC4002E3414 /* AddNoteViewIO.swift */,
 				FAE725E420C090B10004ED61 /* AddNotePresenter.swift */,
 				FAF09B63206C762800B74B73 /* AddNoteViewController.swift */,
-				FA2D6F4D20763C8B002E3414 /* AddNoteViewController.storyboard */,
+				2C469ADC20D488420034D3E7 /* Storyboard */,
 			);
 			path = AddNote;
 			sourceTree = "<group>";
@@ -864,10 +896,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Splash/Pods-Splash-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

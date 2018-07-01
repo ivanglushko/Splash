@@ -9,9 +9,8 @@
 import Foundation
 
 protocol TabBarViewInput: class {
-    
+
 }
 
 protocol TabBarViewOutput: class {
-    
 }

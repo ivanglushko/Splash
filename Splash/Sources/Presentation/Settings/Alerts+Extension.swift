@@ -8,13 +8,12 @@
 
 import UIKit
 
-
 extension SettingsTableViewController {
     func buildAddAlert() {
         let alert = UIAlertController(style: .actionSheet)
         alert.set(message: "Add a link!", font: .systemFont(ofSize: 20), color: .gray)
         var text: String?
-        
+
         let textField: TextField.Config = { textField in
             textField.left(image: #imageLiteral(resourceName: "pen"), color: .black)
             textField.leftViewPadding = 12
@@ -46,8 +45,8 @@ extension SettingsTableViewController {
                 alert.message = "Invalid link try again."
                 self?.show(alert, sender: self)
             }
-            
+
         }
-        present(alert,animated: true)
+        present(alert, animated: true)
     }
 }

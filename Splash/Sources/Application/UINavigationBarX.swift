@@ -10,15 +10,11 @@ import UIKit
 import ChameleonFramework
 
 class UINavigationControllerX: UINavigationController {
-    
     let textAttributes = [NSAttributedStringKey.foregroundColor: UIColor.paleGreenDark ]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationBar.isTranslucent = false
         self.navigationBar.barTintColor = .paleGreen
         self.navigationBar.largeTitleTextAttributes = textAttributes
     }
-
-    
 }

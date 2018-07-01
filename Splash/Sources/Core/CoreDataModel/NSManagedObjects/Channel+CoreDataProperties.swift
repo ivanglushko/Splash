@@ -10,7 +10,6 @@
 import Foundation
 import CoreData
 
-
 extension Channel {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Channel> {
@@ -21,7 +20,7 @@ extension Channel {
     @NSManaged public var isCurrent: Bool
     @NSManaged public var name: String?
     @NSManaged public var url: String
-    @NSManaged public var article: NSSet?
+    @NSManaged public var articles: NSSet?
 
 }
 

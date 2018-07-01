@@ -10,7 +10,6 @@
 import Foundation
 import CoreData
 
-
 extension Article {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Article> {
@@ -20,7 +19,6 @@ extension Article {
     @NSManaged public var descriptionString: String
     @NSManaged public var expanded: Bool
     @NSManaged public var id: String
-    @NSManaged public var isFavourite: Bool
     @NSManaged public var pubDate: Date
     @NSManaged public var title: String
     @NSManaged public var channel: Channel?

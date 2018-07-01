@@ -10,9 +10,7 @@ import UIKit
 
 class BlogCell: UITableViewCell {
 
-
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var fillLabel: UILabel!
-    
+    @IBOutlet weak var fillLabel: UILabel! 
     var expanded = false
 }

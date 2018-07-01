@@ -4,10 +4,9 @@
         <attribute name="descriptionString" attributeType="String" syncable="YES"/>
         <attribute name="expanded" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id" attributeType="String" syncable="YES"/>
-        <attribute name="isFavourite" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="pubDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
-        <relationship name="channel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Channel" inverseName="article" inverseEntity="Channel" syncable="YES"/>
+        <relationship name="channel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Channel" inverseName="articles" inverseEntity="Channel" syncable="YES"/>
     </entity>
     <entity name="Blog" representedClassName="Blog" syncable="YES">
         <attribute name="fill" optional="YES" attributeType="String" syncable="YES"/>
@@ -19,10 +18,10 @@
         <attribute name="isCurrent" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" attributeType="String" syncable="YES"/>
-        <relationship name="article" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Article" inverseName="channel" inverseEntity="Article" syncable="YES"/>
+        <relationship name="articles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Article" inverseName="channel" inverseEntity="Article" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Article" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="Article" positionX="-63" positionY="-18" width="128" height="135"/>
         <element name="Blog" positionX="45" positionY="45" width="128" height="90"/>
         <element name="Channel" positionX="144" positionY="-0" width="128" height="120"/>
     </elements>

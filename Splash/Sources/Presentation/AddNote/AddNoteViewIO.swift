@@ -9,9 +9,11 @@
 import Foundation
 
 protocol AddNoteViewInput: class {
-    
 }
 
 protocol AddNoteViewOutput: class {
     func createBlog(title: String, fill: String)
+}
+protocol AddNoteModuleOutput: class {
+    func didAddNote()
 }
