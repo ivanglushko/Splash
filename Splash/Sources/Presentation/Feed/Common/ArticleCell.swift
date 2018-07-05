@@ -8,6 +8,7 @@
 
 import UIKit
 import ChameleonFramework
+
 class ArticleCell: UITableViewCell {
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var dateLabel: UILabel!
@@ -15,7 +16,7 @@ class ArticleCell: UITableViewCell {
 
     private let defaultLinesNumber = 4
 
-    func configure(with article: Article?, numberOfItems: Int, indexPath: IndexPath) {
+    func configure(with article: Article?) {
         guard let article = article else { return }
         titleLabel.text = article.title
         dateLabel.text = article.pubDate.dateString() + " at " + article.pubDate.timeString()

@@ -12,6 +12,7 @@ import ChameleonFramework
 class FeedTableViewController: UITableViewController {
     // MARK: - Outlets
     public lazy var newLinkLabel: NewLinkLabel = NewLinkLabel()
+    
     // MARK: - Entities
     private let articleCellReuseId = "ArticleCell"
     private lazy var output: FeedViewOutput = {
@@ -19,12 +20,14 @@ class FeedTableViewController: UITableViewController {
         presenter.view = self
         return presenter
     }()
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = .paleGreen
         output.triggerViewReadyEvent()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         output.triggerViewWillAppearEvent()
@@ -34,20 +37,18 @@ class FeedTableViewController: UITableViewController {
 
 // MARK: - UITableViewDataSource
 extension FeedTableViewController {
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return output.numberOfSections()
-    }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return output.numberOfRows()
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: articleCellReuseId) as? ArticleCell else {
             debugPrint("\(#file): Can't dequeue reusable cell with identifier \(articleCellReuseId)")
             return UITableViewCell()
         }
-        let numberOfItems = output.numberOfItems
+        
         let article = output.article(for: indexPath)
-        cell.configure(with: article, numberOfItems: numberOfItems, indexPath: indexPath)
+        cell.configure(with: article)
         return cell
     }
 }
@@ -67,18 +68,22 @@ extension FeedTableViewController: FeedViewInput {
         tableView.addSubview(newLinkLabel)
         newLinkLabel.center = tableView.center
     }
+    
     func reloadData() {
         self.navigationItem.title = output.setNavigationItemTitle()
         tableView.reloadData()
     }
+    
     func showHint() {
         newLinkLabel.text = NewLinkLabel().text
         newLinkLabel.isHidden = false
     }
-    func configureNewLinkLabel(with state: NewLinkLabelState) {
+    
+    func configureNewLinkLabel(with state: State) {
         newLinkLabel.isHidden = false
         newLinkLabel.text = state.rawValue
     }
+    
     func hideHint() {
         newLinkLabel.isHidden = true
     }

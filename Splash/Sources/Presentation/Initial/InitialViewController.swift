@@ -11,11 +11,11 @@ import UIKit
 class InitialViewController: UIViewController {
     @IBOutlet private weak var startupImage: UIImageView!
 
-    var output: InitialViewOutput {
+    private lazy var output: InitialViewOutput = {
         let presenter = InitialPresenter()
         presenter.view = self
         return presenter
-    }
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()

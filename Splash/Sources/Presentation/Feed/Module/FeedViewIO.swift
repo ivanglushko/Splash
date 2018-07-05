@@ -12,7 +12,7 @@ protocol FeedViewInput: class {
     func setupInitialState()
     func reloadData()
     func showHint()
-    func configureNewLinkLabel(with: NewLinkLabelState)
+    func configureNewLinkLabel(with: State)
     func hideHint()
 }
 
@@ -23,7 +23,6 @@ protocol FeedViewOutput: class {
     func triggerViewReadyEvent()
     func triggerViewWillAppearEvent()
     // UITableViewDataSource
-    func numberOfSections() -> Int
     func numberOfRows() -> Int
     func article(for indexPath: IndexPath) -> Article?
     // UITableViewDelegate

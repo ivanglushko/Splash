@@ -92,9 +92,7 @@ extension FeedParser: XMLParserDelegate {
             let title = trimmed(string: currentTitle)
             let description = trimmed(string: currentDescription)
             let pubDateString = trimmed(string: currentPubDate)
-            let rfc2822DateFormatter = DateFormatter()
-            rfc2822DateFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale!
-            rfc2822DateFormatter.dateFormat = "EEE, dd MMM yyyy HH:mm:ss Z"
+            let rfc2822DateFormatter = RFC2822DateFormatter()
             let date = rfc2822DateFormatter.date(from: pubDateString)
 
             items += [ArticleItem(title: title, description: description, pubDate: date ?? Date(), expanded: false)]

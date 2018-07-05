@@ -19,5 +19,4 @@ protocol SettingsViewOutput: class {
     func url(for indexPath: IndexPath) -> String?
     func tapLink(with index: Int)
     func checkIfUrlExists(url: String) -> Bool
-    func triggerViewReadyEvent()
 }

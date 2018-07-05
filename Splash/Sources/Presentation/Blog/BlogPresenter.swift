@@ -13,7 +13,7 @@ class BlogPresenter {
     static var shared = BlogPresenter()
     weak var view: BlogViewInput?
     private var blogs: [Blog]? = {
-       return CoreDataHelper.shared.fetch(entity: "Blog") as? [Blog]
+        return CoreDataHelper.shared.fetch(entity: "Blog") as? [Blog]
     }()
 }
 
@@ -25,9 +25,11 @@ extension BlogPresenter: BlogViewOutput {
             view?.reloadData()
         }
     }
+    
     func returnNumberOfRows() -> Int {
         return blogs?.count ?? 0
     }
+    
     func configureCell(cell: BlogCell, indexPath: IndexPath) -> BlogCell {
         cell.titleLabel.text = blogs?[indexPath.row].title
         cell.fillLabel.text = blogs?[indexPath.row].fill

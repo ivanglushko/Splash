@@ -31,6 +31,14 @@ class SettingsTableViewController: UITableViewController {
     @IBAction private func addLink(_ sender: UIBarButtonItem) {
         buildAddAlert()
     }
+    
+    private func setCells(indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = output.url(for: indexPath)
+        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        if indexPath.row == 0 { cell.backgroundColor = FlatGreen() }
+        return cell
+    }
 }
 
 // MARK: - TableViewDataSource
@@ -55,18 +63,6 @@ extension SettingsTableViewController {
         action.image = UIImage(named: "delete")
         let configuration = UISwipeActionsConfiguration(actions: [action])
         return configuration
-    }
-}
-
-extension SettingsTableViewController {
-    func setCells(indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = output.url(for: indexPath)
-        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        if indexPath.row == 0 {
-            cell.backgroundColor = FlatGreen()
-        }
-        return cell
     }
 }
 

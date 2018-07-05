@@ -1,5 +1,5 @@
 //
-//  Alerts+Extension.swift
+//  Alerts.swift
 //  Splash
 //
 //  Created by Ivan Glushko on 24.05.18.

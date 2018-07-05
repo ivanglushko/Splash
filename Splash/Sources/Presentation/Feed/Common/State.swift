@@ -1,5 +1,5 @@
 //
-//  NewLinkLabelState.swift
+//  State.swift
 //  Splash
 //
 //  Created by Ivan Glushko on 15/06/2018.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum NewLinkLabelState: String {
+enum State: String {
     case connectionError = "Connection has failed."
     case parsingError = "Error due parsing."
     case loading = "Loading articles..."

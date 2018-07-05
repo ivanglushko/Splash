@@ -11,10 +11,12 @@ import CoreData
 
 final class CoreDataHelper {
     static var shared = CoreDataHelper()
-    var context: NSManagedObjectContext {
+    var articleEntity: NSEntityDescription?
+    var isCurrentPredicate = NSPredicate(format: "isCurrent == true")
+    lazy var context: NSManagedObjectContext = {
         return persistentContainer.viewContext
-    }
-    var persistentContainer: NSPersistentContainer = {
+    }()
+    private var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Stored")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
@@ -23,22 +25,22 @@ final class CoreDataHelper {
         })
         return container
     }()
-    var articleEntity: NSEntityDescription?
-    var isCurrentPredicate = NSPredicate(format: "isCurrent == true")
+
+    
     init() {
         self.articleEntity  = NSEntityDescription.entity(forEntityName: "Article", in: context)
     }
-     func save() {
+    
+    func save() {
         if context.hasChanges {
             do {
                 try context.save()
             } catch {
-                let nserror = error
-                print(nserror)
-                fatalError("\(nserror)")
+                fatalError("\(error)")
             }
         }
     }
+    
     func fetch(entity: String, predicate: NSPredicate? = nil) -> [Any] {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
         if let predicate = predicate {
@@ -51,15 +53,17 @@ final class CoreDataHelper {
             fatalError("\(error)")
         }
     }
+    
     func delete(object: NSManagedObject) {
         context.delete(object)
     }
+    
     func deleteAll(fetchRequest: NSFetchRequest<NSFetchRequestResult>) {
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         do {
             try context.execute(deleteRequest)
-        } catch let err {
-            print("Error due deletion: \(err)")
+        } catch {
+            print("Error due deletion: \(error)")
         }
         save()
     }

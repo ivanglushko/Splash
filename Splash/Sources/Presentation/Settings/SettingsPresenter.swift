@@ -21,7 +21,7 @@ class SettingsPresenter {
     }()
 
     private lazy var channels: [Channel]? = {
-        return self.fetchChannels()
+        return fetchChannels()
     }()
     
     private func fetchChannels() -> [Channel]? {
@@ -89,7 +89,4 @@ extension SettingsPresenter: SettingsViewOutput {
         }
     }
 
-    func triggerViewReadyEvent() {
-
-    }
  }

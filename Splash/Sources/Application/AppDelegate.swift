@@ -7,12 +7,12 @@
 //
 
 import UIKit
+import CoreData
 import Reachability
 
 @UIApplicationMain
 class AppDelegate: UIResponder {
     var window: UIWindow?
-
 }
 
 extension AppDelegate: UIApplicationDelegate {
