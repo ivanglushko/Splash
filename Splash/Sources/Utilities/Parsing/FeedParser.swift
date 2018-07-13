@@ -27,9 +27,10 @@ class FeedParser: NSObject {
     fileprivate var currentDescription = ""
     fileprivate var currentPubDate = ""
     fileprivate var channelTitle = ""
+    fileprivate var currentURL = ""
     fileprivate var isChannelTitle = false
 
-    func parseFeed(feedUrl: URL,errorHandler: @escaping ((Error?) -> Void), completionHandler: (([ArticleItem]) -> Void)?) {
+    func parseFeed(feedUrl: URL, errorHandler: @escaping ((Error?) -> Void), completionHandler: (([ArticleItem]) -> Void)?) {
         self.completionHandler = completionHandler
 
         let request = URLRequest(url: feedUrl)
@@ -55,18 +56,25 @@ extension FeedParser: XMLParserDelegate {
         items = [ArticleItem]()
     }
 
-   func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String: String] = [:]) {
+    func parser(_ parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String: String] = [:]) {
         currentElement = elementName
         if currentElement == RssTag.item.rawValue {
             currentTitle = ""
             currentDescription = ""
             currentPubDate = ""
         }
-
+        
         if currentElement == RssTag.channel.rawValue {
             channelTitle = ""
             isChannelTitle = true
         }
+        
+        if !attributeDict.isEmpty {
+            guard attributeDict["type"] == "image/jpeg" else { return }
+            guard let url = attributeDict["url"] else { return }
+            currentURL = url
+        }
+        
     }
 
     func parser(_ parser: XMLParser, foundCharacters string: String) {
@@ -92,10 +100,11 @@ extension FeedParser: XMLParserDelegate {
             let title = trimmed(string: currentTitle)
             let description = trimmed(string: currentDescription)
             let pubDateString = trimmed(string: currentPubDate)
+            let url = currentURL
             let rfc2822DateFormatter = RFC2822DateFormatter()
             let date = rfc2822DateFormatter.date(from: pubDateString)
 
-            items += [ArticleItem(title: title, description: description, pubDate: date ?? Date(), expanded: false)]
+            items += [ArticleItem(title: title, description: description, url: url, pubDate: date ?? Date(), expanded: false)]
         }
         if elementName == RssTag.channel.rawValue  {
             self.channelTitle = trimmed(string: channelTitle)
@@ -105,6 +114,7 @@ extension FeedParser: XMLParserDelegate {
 
     func parserDidEndDocument(_ parser: XMLParser) {
         guard let completionHandler = completionHandler else { return }
+        currentURL = ""
         completionHandler(items)
     }
 
@@ -113,6 +123,7 @@ extension FeedParser: XMLParserDelegate {
         debugPrint(parseError.localizedDescription)
     }
 }
+
 
 fileprivate extension FeedParser {
     func trimmed(string: String) -> String {

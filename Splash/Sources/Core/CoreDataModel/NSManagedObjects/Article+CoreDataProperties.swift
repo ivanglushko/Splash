@@ -21,6 +21,8 @@ extension Article {
     @NSManaged public var id: String
     @NSManaged public var pubDate: Date
     @NSManaged public var title: String
+    @NSManaged public var imageUrl: String
+    @NSManaged public var picture: NSData?
     @NSManaged public var channel: Channel?
 
 }

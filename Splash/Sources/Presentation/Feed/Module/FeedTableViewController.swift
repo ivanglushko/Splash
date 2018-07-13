@@ -10,10 +10,8 @@ import UIKit
 import ChameleonFramework
 
 class FeedTableViewController: UITableViewController {
-    // MARK: - Outlets
-    public lazy var newLinkLabel: NewLinkLabel = NewLinkLabel()
     
-    // MARK: - Entities
+    private lazy var newLinkLabel: NewLinkLabel = NewLinkLabel()
     private let articleCellReuseId = "ArticleCell"
     private lazy var output: FeedViewOutput = {
         let presenter = FeedPresenter()
@@ -82,6 +80,7 @@ extension FeedTableViewController: FeedViewInput {
     func configureNewLinkLabel(with state: State) {
         newLinkLabel.isHidden = false
         newLinkLabel.text = state.rawValue
+        print(newLinkLabel.text!)
     }
     
     func hideHint() {

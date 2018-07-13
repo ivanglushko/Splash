@@ -7,27 +7,29 @@
 //
 
 import Foundation
-import Reachability
 import SystemConfiguration
 
 class FeedPresenter {
     weak var view: FeedViewInput?
-    private lazy var reachability = Reachability()
     private let feedParser = FeedParser()
     private var items: [ArticleItem] = []
     
-    private var channel: Channel? = {
-        let predicate = CoreDataHelper.shared.isCurrentPredicate
-        guard let channels =  CoreDataHelper.shared.fetch(entity: "Channel", predicate: predicate) as? [Channel]
-        else { return nil }
-        guard let channel = channels.first else { return nil }
-        return channel
+    private lazy var channel: Channel? = {
+        fetchChannel()
     }()
     
     private var articles: [Article]? {
         let articles = channel?.articles?.allObjects as? [Article]
         let sortedArticles = articles?.sorted { $0.pubDate < $1.pubDate }
         return sortedArticles
+    }
+    
+    func fetchChannel() -> Channel? {
+        let predicate = CoreDataHelper.shared.isCurrentPredicate
+        guard let channels =  CoreDataHelper.shared.fetch(entity: "Channel", predicate: predicate) as? [Channel]
+            else { return nil }
+        guard let channel = channels.first else { return nil }
+        return channel
     }
     
     func startParsingURLs() {
@@ -66,9 +68,20 @@ class FeedPresenter {
             article.pubDate = item.pubDate
             article.expanded = item.expanded
             article.id = NSUUID().uuidString
+            article.imageUrl = item.url
+            downloadImage(url: item.url, article: article)
             article.channel = channel
         }
         CoreDataHelper.shared.save()
+    }
+    
+    func downloadImage(url: String, article: Article) {
+        let imageDownloader = ImageDownloader()
+        imageDownloader.downloadImage(url: url) { (data) in
+            DispatchQueue.main.async {
+                article.picture = data
+            }
+        }
     }
     
     func didFailureParsing(with: Error) {
@@ -104,11 +117,14 @@ extension FeedPresenter: FeedViewOutput {
     func setNavigationItemTitle() -> String {
         return channel?.name ?? "Splash"
     }
+    
     // MARK: Lifecycle
     func triggerViewReadyEvent() {
         view?.setupInitialState()
     }
+    
     func triggerViewWillAppearEvent() {
+        channel = fetchChannel()
         checkConnection()
     }
     

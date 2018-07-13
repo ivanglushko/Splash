@@ -10,11 +10,14 @@ import Foundation
 import ChameleonFramework
 
 class BlogPresenter {
-    static var shared = BlogPresenter()
     weak var view: BlogViewInput?
-    private var blogs: [Blog]? = {
-        return CoreDataHelper.shared.fetch(entity: "Blog") as? [Blog]
+    private lazy var blogs: [Blog]? = {
+        fetchBlogs()
     }()
+    
+    private func fetchBlogs() -> [Blog]? {
+        return CoreDataHelper.shared.fetch(entity: "Blog") as? [Blog]
+    }
 }
 
 extension BlogPresenter: BlogViewOutput {
@@ -22,6 +25,7 @@ extension BlogPresenter: BlogViewOutput {
         if let blog = blogs?[indexPath.row] {
             CoreDataHelper.shared.delete(object: blog)
             CoreDataHelper.shared.save()
+            blogs = fetchBlogs()
             view?.reloadData()
         }
     }

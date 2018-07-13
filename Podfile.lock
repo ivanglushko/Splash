@@ -2,11 +2,9 @@ PODS:
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
     - ChameleonFramework/Default
-  - Reachability (3.2)
 
 DEPENDENCIES:
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
-  - Reachability
 
 EXTERNAL SOURCES:
   ChameleonFramework:
@@ -19,8 +17,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
-  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
 
-PODFILE CHECKSUM: 09a4a283818671cb8028d68c2f478178a8c7664c
+PODFILE CHECKSUM: a273bb25f0c8ae8f0ddcc6273e2b50cecd7239ae
 
 COCOAPODS: 1.4.0

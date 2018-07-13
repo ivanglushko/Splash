@@ -18,6 +18,12 @@ class AddNoteViewController: UIViewController {
         let presenter = AddNotePresenter()
         return presenter
     }()
+    
+    public var blogPresenter: AddNoteModuleOutput? {
+        willSet {
+            output.setBlogPresenter(with: newValue)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,4 +85,3 @@ extension AddNoteViewController: UITextViewDelegate {
         }
     }
 }
-

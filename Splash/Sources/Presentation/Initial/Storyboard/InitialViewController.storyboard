@@ -5,13 +5,13 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--TabBarController-->
         <scene sceneID="FNE-bJ-EOe">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="314-Z5-dTj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="InitialViewController" title="TabBarController" id="i9t-DZ-x0P" customClass="InitialViewController" customModule="Splash" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="yIE-QC-UQE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -28,12 +28,13 @@
                             <constraint firstAttribute="bottom" secondItem="Vl2-DD-LCj" secondAttribute="bottom" id="Qiv-e1-3jC"/>
                             <constraint firstItem="Vl2-DD-LCj" firstAttribute="top" secondItem="yIE-QC-UQE" secondAttribute="top" id="fzZ-ra-tSV"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="iYl-Q1-lMc"/>
                     </view>
                     <connections>
-                        <outlet property="startupImage" destination="Vl2-DD-LCj" id="KuO-w0-1Lk"/>
                         <segue destination="0Y7-bo-E6q" kind="show" identifier="GoToTabBar" id="qZu-1M-abB"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="314-Z5-dTj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1591.2" y="-170.46476761619192"/>
         </scene>

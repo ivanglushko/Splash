@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C270FD720EE464B007FA049 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C270FD620EE464B007FA049 /* ImageDownloader.swift */; };
 		2C2E962620C0500200D0BEC2 /* BlogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2E962520C0500200D0BEC2 /* BlogCell.swift */; };
 		2C72C5042073B88500C300B2 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C72C5032073B88500C300B2 /* TabBarViewController.swift */; };
 		2C8BB467207424A800711675 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8BB466207424A800711675 /* SettingsTableViewController.swift */; };
@@ -95,7 +96,7 @@
 		FA80077920D3E488005973D5 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA80077820D3E488005973D5 /* State.swift */; };
 		FA8FBA4A20713C420029E430 /* ArticleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8FBA4920713C420029E430 /* ArticleItem.swift */; };
 		FA8FBA4C207147A10029E430 /* URLValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8FBA4B207147A10029E430 /* URLValidator.swift */; };
-		FAD169D820B764890017A58C /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD169D720B764890017A58C /* Alerts.swift */; };
+		FAD169D820B764890017A58C /* SettingsTableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD169D720B764890017A58C /* SettingsTableView+Extension.swift */; };
 		FAD3E88920C493C80041335A /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD3E88820C493C80041335A /* UIColor+Extension.swift */; };
 		FAD3E88C20C4A2BD0041335A /* Blog+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD3E88A20C4A2BD0041335A /* Blog+CoreDataClass.swift */; };
 		FAD3E88D20C4A2BD0041335A /* Blog+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD3E88B20C4A2BD0041335A /* Blog+CoreDataProperties.swift */; };
@@ -109,6 +110,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C270FD620EE464B007FA049 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		2C2E962520C0500200D0BEC2 /* BlogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlogCell.swift; sourceTree = "<group>"; };
 		2C72C5032073B88500C300B2 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		2C8BB466207424A800711675 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -199,7 +201,7 @@
 		FA80077820D3E488005973D5 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		FA8FBA4920713C420029E430 /* ArticleItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleItem.swift; sourceTree = "<group>"; };
 		FA8FBA4B207147A10029E430 /* URLValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLValidator.swift; sourceTree = "<group>"; };
-		FAD169D720B764890017A58C /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		FAD169D720B764890017A58C /* SettingsTableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsTableView+Extension.swift"; sourceTree = "<group>"; };
 		FAD3E88820C493C80041335A /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		FAD3E88A20C4A2BD0041335A /* Blog+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Blog+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FAD3E88B20C4A2BD0041335A /* Blog+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Blog+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -382,7 +384,7 @@
 				FA2D6F5B20764FD2002E3414 /* SettingsViewIO.swift */,
 				FA2D6F5D2076577E002E3414 /* SettingsPresenter.swift */,
 				2C8BB466207424A800711675 /* SettingsTableViewController.swift */,
-				FAD169D720B764890017A58C /* Alerts.swift */,
+				FAD169D720B764890017A58C /* SettingsTableView+Extension.swift */,
 				2C469ADD20D488470034D3E7 /* Storyboard */,
 			);
 			path = Settings;
@@ -434,6 +436,7 @@
 				FADFC2E2206C5AFC000BECFD /* AppDelegate.swift */,
 				FA7A775320C33B94001D83E9 /* UINavigationControllerX.swift */,
 				FAD3E88820C493C80041335A /* UIColor+Extension.swift */,
+				2C270FD620EE464B007FA049 /* ImageDownloader.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -899,12 +902,10 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Splash/Pods-Splash-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
-				"${BUILT_PRODUCTS_DIR}/Reachability/Reachability.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -948,10 +949,11 @@
 				FAD3E88D20C4A2BD0041335A /* Blog+CoreDataProperties.swift in Sources */,
 				FA2E0BA1209FD03400E0DEE7 /* CountryCell.swift in Sources */,
 				FA071B9F206EDA8E00359F13 /* InitialPresenter.swift in Sources */,
-				FAD169D820B764890017A58C /* Alerts.swift in Sources */,
+				FAD169D820B764890017A58C /* SettingsTableView+Extension.swift in Sources */,
 				FA2E0BB0209FD03400E0DEE7 /* OneTextFieldViewController.swift in Sources */,
 				FA2E0BA7209FD03400E0DEE7 /* Address.swift in Sources */,
 				FA2E0BAF209FD03400E0DEE7 /* LikeButtonCell.swift in Sources */,
+				2C270FD720EE464B007FA049 /* ImageDownloader.swift in Sources */,
 				FA2E0BAA209FD03400E0DEE7 /* PhotoLibraryPickerViewController.swift in Sources */,
 				FADFC2E3206C5AFC000BECFD /* AppDelegate.swift in Sources */,
 				FAD3E88C20C4A2BD0041335A /* Blog+CoreDataClass.swift in Sources */,

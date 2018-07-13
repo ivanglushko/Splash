@@ -11,6 +11,7 @@ import Foundation
 struct ArticleItem {
     var title = ""
     var description = ""
+    var url = ""
     var pubDate = Date()
     var expanded = false
 }

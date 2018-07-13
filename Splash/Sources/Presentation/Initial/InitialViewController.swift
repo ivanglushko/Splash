@@ -9,8 +9,6 @@
 import UIKit
 
 class InitialViewController: UIViewController {
-    @IBOutlet private weak var startupImage: UIImageView!
-
     private lazy var output: InitialViewOutput = {
         let presenter = InitialPresenter()
         presenter.view = self

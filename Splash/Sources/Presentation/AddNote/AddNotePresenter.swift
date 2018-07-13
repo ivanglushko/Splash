@@ -10,10 +10,7 @@ import Foundation
 import ChameleonFramework
 
 class AddNotePresenter {
-    private lazy var blogPresenter: AddNoteModuleOutput = {
-        let presenter = BlogPresenter.shared
-        return presenter
-    }()
+    private var blogPresenter: AddNoteModuleOutput?
 }
 
 extension AddNotePresenter: AddNoteViewOutput {
@@ -29,6 +26,10 @@ extension AddNotePresenter: AddNoteViewOutput {
         if hasFill { blog.fill = fill }
         blog.hexColor = hexColor
         CoreDataHelper.shared.save()
-        blogPresenter.didAddNote()
+        blogPresenter?.didAddNote()
+    }
+    
+    func setBlogPresenter(with presenter: AddNoteModuleOutput?) {
+        blogPresenter = presenter
     }
 }
