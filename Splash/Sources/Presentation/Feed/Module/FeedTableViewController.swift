@@ -65,6 +65,7 @@ extension FeedTableViewController: FeedViewInput {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.addSubview(newLinkLabel)
         newLinkLabel.center = tableView.center
+        newLinkLabel.isHidden = true
     }
     
     func reloadData() {

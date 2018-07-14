@@ -106,6 +106,7 @@ class FeedPresenter {
         } else if let articles = articles, !articles.isEmpty {
             view?.reloadData()
         } else {
+            view?.reloadData()
             view?.configureNewLinkLabel(with: State.connectionError)
         }
     }
