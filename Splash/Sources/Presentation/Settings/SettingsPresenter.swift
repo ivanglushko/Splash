@@ -84,8 +84,10 @@ extension SettingsPresenter: SettingsViewOutput {
     func deleteChannel(indexPath: IndexPath) {
         if let channel = channels?[indexPath.row] {
             CoreDataHelper.shared.delete(object: channel)
-            if let newChannel = channels?[indexPath.row + 1] {
-               newChannel.isCurrent = true
+            if channel.isCurrent {
+                guard let count = channels?.count, count >= 2 else { return }
+                let newChannel = channels?[indexPath.row + 1]
+                newChannel?.isCurrent = true
             }
             CoreDataHelper.shared.save()
             channels = fetchChannels()
